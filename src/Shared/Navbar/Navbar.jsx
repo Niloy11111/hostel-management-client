@@ -1,13 +1,13 @@
 
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../Components/AuthProvider/AuthProvider";
 
 
 
 const NavBar = () => {
 
-    
-
-      const user = false ;
+    const {user , logOut} = useContext(AuthContext) ;
 
     const navlinksBeforeLogin = <>
         <li>
@@ -73,7 +73,7 @@ const NavBar = () => {
 
                 </li>
                 <li>
-                    <button className="btn btn-sm  btn-ghost"
+                    <button onClick={logOut} className="btn btn-sm  btn-ghost"
                        
                     >Logout</button>
 
@@ -85,7 +85,7 @@ const NavBar = () => {
 
     </>
     return (
-        <div className="flex px-10 -mx-12 lg:-mx-36 items-center flex-col lg:flex-row py-3 lg:py-4 justify-between  ">
+        <div className="flex px-10 -mx-12 lg:-mx-36 bg-[#9ADBF5] items-center flex-col lg:flex-row py-3 lg:py-4 justify-between  ">
 
             {/* <div className="flex items-center">
                <h2 className="text-3xl font-bold font-serif"> Job Portal</h2>
