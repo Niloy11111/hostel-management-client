@@ -5,14 +5,13 @@ import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../../Components/AuthProvider/AuthProvider';
+import useAxiosPublic from '../../../Hooks/UseAxiosPublic';
 
-
-// import useAxiosPublic from '../../../Hooks/useAxiosPublic';
 
 
 const Login = () => {
     const navigate = useNavigate();
-    //   const axiosPublic = useAxiosPublic() ;
+      const axiosPublic = useAxiosPublic() ;
 
     const { signInUser, user,  googleSignIn } = useContext(AuthContext);
 
@@ -44,15 +43,15 @@ const Login = () => {
         googleSignIn()
             .then(res => {
                 console.log(res.user)
-                // const userInfo = {
-                //   email : res.user?.email,
-                //   name : res.user?.displayName  
-                // }
-                // axiosPublic.post('/users', userInfo)
-                // .then(res => {
-                //   console.log(res.data)
-                //   navigate('/') ;
-                // })
+                const userInfo = {
+                  email : res.user?.email,
+                  name : res.user?.displayName  
+                }
+                axiosPublic.post('/users', userInfo)
+                .then(res => {
+                  console.log(res.data)
+                  navigate('/') ;
+                })
                 new Swal("Login Successful!", "Welcome back!", "success")
 
             })

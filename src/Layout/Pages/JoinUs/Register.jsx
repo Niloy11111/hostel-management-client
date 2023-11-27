@@ -5,13 +5,12 @@ import { FcGoogle } from 'react-icons/fc';
 import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../../Components/AuthProvider/AuthProvider';
-// import useAxiosPublic from '../../../Hooks/useAxiosPublic';
+import useAxiosPublic from '../../../Hooks/UseAxiosPublic';
 
 
 const Register = () => {
     const navigate = useNavigate();
-    //   const axiosPublic = useAxiosPublic() ;
-    const [toogle, setToogle] = useState(true);
+      const axiosPublic = useAxiosPublic() ;
     const { signInUser, user, updateUserProfile, createUser, googleSignIn, logOut } = useContext(AuthContext);
 
     console.log(user)
@@ -42,15 +41,15 @@ const Register = () => {
                             email: data.email
                         }
 
-                            // axiosPublic.post('/users', userInfo)
-                            // .then(res => {
-                            //   console.log(res.data);
-                            //   if (res.data.insertedId) {
-                            //     reset();
-                            //     new Swal("Thank you!", "You have successfully completed your registration!", "success");
-                            //     navigate('/');
-                            //   }
-                            // })
+                            axiosPublic.post('/users', userInfo)
+                            .then(res => {
+                              console.log(res.data);
+                              if (res.data.insertedId) {
+                                reset();
+                                new Swal("Thank you!", "You have successfully completed your registration!", "success");
+                                navigate('/');
+                              }
+                            })
                             .catch(error => {
                                 console.log(error);
                             });

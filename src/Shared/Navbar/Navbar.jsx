@@ -1,11 +1,14 @@
 
 import { useContext } from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../../Components/AuthProvider/AuthProvider";
+import UseAdmin from "../../Hooks/UseAdmin";
 
 
 
 const NavBar = () => {
+
+    const [isAdmin] = UseAdmin() ;
 
     const {user , logOut} = useContext(AuthContext) ;
 
@@ -70,11 +73,15 @@ const NavBar = () => {
             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                 <li>
                     <button className="btn btn-sm  btn-ghost">{user?.displayName}</button>
-
                 </li>
+                {
+    user && isAdmin && <li>< Link to='/dashboard/adminProfile'>Dashboard</Link></li>
+   }
+   {
+    user && !isAdmin && <li>< Link to='/dashboard/userProfile'>Dashboard</Link></li>
+   }
                 <li>
-                    <button onClick={logOut} className="btn btn-sm  btn-ghost"
-                       
+                    <button onClick={logOut} className="btn btn-sm  btn-ghost"  
                     >Logout</button>
 
                 </li>
