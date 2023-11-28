@@ -8,7 +8,7 @@ import MealTab from "./MealTab/MealTab";
 const MealsByCategory = () => {
 
     const [activeTab, setActiveTab] = useState(0);
-    const [meals] = UseMeal() ;
+    const [meals , loading, refetch ] = UseMeal() ;
 
     const breakfast = meals.filter(item => item.category === 'Breakfast') ;
     const lunch = meals.filter(item => item.category === 'Lunch') ;

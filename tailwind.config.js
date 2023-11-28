@@ -7,8 +7,10 @@ export default {
   theme: {
     extend: {
       fontFamily : {
-        Inter : "'Inter', sans-serif"
+        Inter : "'Inter', sans-serif ",
+        Montserrat  : 'Montserrat'
       },
+    
     },
   },
   plugins: [require("daisyui")],

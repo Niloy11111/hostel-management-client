@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import UseAuth from "../../../../../Hooks/UseAuth";
 import UseAxiosSecure from "../../../../../Hooks/UseAxiosSecure";
 import { Rating } from "@smastrom/react-rating";
@@ -17,7 +17,7 @@ const MealCard = ({ item }) => {
     const axiosSecure = UseAxiosSecure();
 
     return (
-        <div className="space-y-2">
+        <div className="space-y-2 border p-2 rounded">
          
             <img className="w-full h-[400px]"  src={image}></img>
             <h2 className="font-serif text-2xl font-normal">{name}</h2>
@@ -28,7 +28,7 @@ const MealCard = ({ item }) => {
     /> 
     <p className="font-serif text-2xl font-normal ">Price ${price}</p>
 
-    <AwesomeButton type="primary">Explore More</AwesomeButton>
+      <Link to={`/details/${_id}`}>  <AwesomeButton type="primary">Explore More</AwesomeButton></Link>
    
         </div>
     );

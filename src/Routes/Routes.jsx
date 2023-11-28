@@ -16,6 +16,7 @@ import ServeMeals from "../Layout/Pages/Dashboard/ServeMeals/ServeMeals";
 import UpcomingMeals from "../Layout/Pages/Dashboard/UpcomingMeals/UpcomingMeals";
 import AdminRoute from "./AdminRoute";
 import PrivateRoute from "./PrivateRoute";
+import MealDetail from "../Layout/Pages/Home/MealsByCategory/MealDetails/MealDetail";
 
 
 export const router = createBrowserRouter([
@@ -34,6 +35,11 @@ export const router = createBrowserRouter([
        {
         path : '/register',
         element : <Register></Register>
+       },
+       {
+        path : '/details/:id',
+        element : <MealDetail></MealDetail>,
+        loader : ({params}) => fetch(`http://localhost:5000/meals/${params.id}`)
        }
       ]
     },
