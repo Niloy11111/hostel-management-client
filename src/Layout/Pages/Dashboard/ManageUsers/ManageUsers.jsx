@@ -41,27 +41,27 @@ const ManageUsers = () => {
     {/* head */}
     <thead>
       <tr>
-        <th></th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Make Admin</th>
-        <th>Membership</th>
+        <th className="text-center text-lg font-serif text-[#444]">#</th>
+        <th className="text-center text-lg font-serif text-[#444]">Name</th>
+        <th className="text-center text-lg font-serif text-[#444]">Email</th>
+        <th className="text-center text-lg font-serif text-[#444]">Make Admin</th>
+        <th className="text-center text-lg font-serif text-[#444]">Membership</th>
       </tr>
     </thead>
     <tbody>
       {
         users.map((user, index) =><tr key={user._id}>
-            <th>{index+ 1}</th>
-            <td>{user.name}</td>
-            <td>{user.email}</td>
-            <td>
+            <th className="text-sm text-[#444] font-normal font-Montserrat text-center " >{index+ 1}</th>
+            <td className="text-sm text-[#444] font-normal font-Montserrat text-center " >{user.name}</td>
+            <td className="text-sm text-[#444] font-normal font-Montserrat text-center " >{user.email}</td>
+            <td className="text-sm text-[#444] font-normal font-Montserrat text-center " >
 
            { user.role === 'admin' ? 'Admin' :
            
            <button onClick={() => handleMakeAdmin(user)} className="btn btn-lg bg-orange-400"><FaUsers className=" text-2xl text-white"></FaUsers> </button>}
             </td>
 
-            <td>
+            <td className="text-sm text-[#444] font-normal font-Montserrat text-center " >
            Pending
             </td>
 

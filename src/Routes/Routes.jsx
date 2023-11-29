@@ -17,6 +17,8 @@ import UpcomingMeals from "../Layout/Pages/Dashboard/UpcomingMeals/UpcomingMeals
 import AdminRoute from "./AdminRoute";
 import PrivateRoute from "./PrivateRoute";
 import MealDetail from "../Layout/Pages/Home/MealsByCategory/MealDetails/MealDetail";
+import UpdateReview from "../Layout/Pages/Dashboard/UserReviews/UpdateReview";
+import UpdateMeal from "../Layout/Pages/Dashboard/AllMeals/UpdateMeal";
 
 
 export const router = createBrowserRouter([
@@ -91,6 +93,16 @@ export const router = createBrowserRouter([
           path : 'userReviews',
           element : <UserReviews></UserReviews>
         },
+        {
+          path : 'updateReview/:id',
+          element : <UpdateReview></UpdateReview>,
+          loader : ({params}) => fetch(`http://localhost:5000/reviews/${params.id}`)
+        },
+        {
+          path : 'updateMeal/:id',
+          element : <UpdateMeal></UpdateMeal> ,
+          loader : ({params}) => fetch(`http://localhost:5000/meals/${params.id}`)
+        }
 
       ]
     }

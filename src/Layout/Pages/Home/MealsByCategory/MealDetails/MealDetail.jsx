@@ -21,22 +21,25 @@ const MealDetail = () => {
     const axiosPublic = useAxiosPublic() ;
     const axiosSecure = UseAxiosSecure() ;
     const [meals , loading ] = UseMeal() ;
+    const mealDetail = useLoaderData() ;
+    const { name, category,price,postTime,rating,likes,review,adminName,adminEmail,ingredient,description,
+        image, _id } = mealDetail ;
 
     const { register, handleSubmit } = useForm() ;
 
     const {data : allReviews =  [], refetch} = useQuery({
         queryKey : ['reviews'] ,
         queryFn : async () => {
-            const res = await axiosSecure.get('/reviews') ;
+            const res = await axiosSecure.get(`/reviews?title=${name}`) ;
             return res.data ;
            
         }
         
     })
 
-    const mealDetail = useLoaderData() ;
-    const { name, category,price,postTime,rating,likes,review,adminName,adminEmail,ingredient,description,
-        image, _id } = mealDetail ;
+    console.log("all review",allReviews.length)
+
+   
 
         const [isLiked, setIsLiked] = useState(false);
         const handleLikeClick = () => {
@@ -70,7 +73,7 @@ const MealDetail = () => {
               const userName = user?.displayName ;
               const userEmail = user?.email ;
               const status = 'pending' ;
-              const reviews = 2 ;
+              const reviews = allReviews.length ;
               const requestedMealInfo = {
                 title, likeNumber , status, reviews, userName, userEmail
               }
@@ -107,10 +110,11 @@ const MealDetail = () => {
             const userEmail = user?.email ;
             const title = name ;
             const likeNumber = likes ;
-            const reviewNumbers = allReviews?.length ; 
+            const reviewNumbers = allReviews.length ; 
             const review = data.review ;
+            const detailsId = _id ;
             const reviewInfo = {
-              title, likeNumber, reviewNumbers, review, userEmail
+              title, likeNumber, reviewNumbers, review, userEmail, detailsId
             }
             axiosSecure.post(`/reviews`, reviewInfo ) 
               .then(data => {
@@ -185,11 +189,14 @@ const MealDetail = () => {
       <textarea className="outline-none border-2 w-full  mb-6" {...register('review' , {required : true})} id="" cols="30" rows="5"></textarea>
 
       
-        <button className=" px-8 py-3 border-2 bg-red-100">Make Review</button>
+       <div className="flex justify-center">
+       <button className=" px-8 py-3 border-2 bg-red-100">Make Review</button>
+       </div>
       
    </form>
 
         <div>
+          <h2 className="text-2xl my-10 text-center font-bold font-Montserrat">Our Customers Opinion</h2>
           {
             allReviews.map(item => <li key={item._id}> 
             {item.review}

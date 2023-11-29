@@ -105,6 +105,9 @@ const AddMeal = () => {
     <div>
 
       <div className="w-4/6 ">
+
+      <h2 className="text-3xl my-8 font-Montserrat font-bold text-center">Add a Meal </h2>
+
         <ul>
           { }
         </ul>

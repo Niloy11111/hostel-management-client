@@ -34,6 +34,9 @@ const Login = () => {
         signInUser(email, password)
             .then(res => {
                 console.log('from sign in', res.user)
+                new Swal("Login Successful!", "Welcome back!", "success")
+                navigate('/')
+
             })
             .catch(error => console.log(error))
     }

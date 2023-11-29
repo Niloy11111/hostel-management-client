@@ -10,6 +10,8 @@ const MealCard = ({ item }) => {
     const { name, category,price,postTime,rating,likes,review,adminName,adminEmail,ingredient,description,
         image, _id } = item;
 
+        console.log('sam rating', rating)
+
 
     const { user } = UseAuth();
     const navigate = useNavigate();

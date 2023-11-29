@@ -1,8 +1,9 @@
 
 import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
-import { AuthContext } from "../../Components/AuthProvider/AuthProvider";
+
 import UseAdmin from "../../Hooks/UseAdmin";
+import UseAuth from "../../Hooks/UseAuth";
 
 
 
@@ -10,7 +11,7 @@ const NavBar = () => {
 
     const [isAdmin] = UseAdmin() ;
 
-    const {user , logOut} = useContext(AuthContext) ;
+    const {user , logOut} = UseAuth() ;
 
     const navlinksBeforeLogin = <>
         <li>
