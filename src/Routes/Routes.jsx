@@ -19,6 +19,9 @@ import PrivateRoute from "./PrivateRoute";
 import MealDetail from "../Layout/Pages/Home/MealsByCategory/MealDetails/MealDetail";
 import UpdateReview from "../Layout/Pages/Dashboard/UserReviews/UpdateReview";
 import UpdateMeal from "../Layout/Pages/Dashboard/AllMeals/UpdateMeal";
+import MealPage from "../Layout/Pages/MealsPage/MealPage";
+import AllUpcomingMeals from "../Layout/Pages/UpcomingMealsPage/AllUpcomingMeals";
+import Checkout from "../Layout/Pages/CheckoutPage/Checkout";
 
 
 export const router = createBrowserRouter([
@@ -42,7 +45,20 @@ export const router = createBrowserRouter([
         path : '/details/:id',
         element : <MealDetail></MealDetail>,
         loader : ({params}) => fetch(`http://localhost:5000/meals/${params.id}`)
-       }
+       },
+       {
+        path : '/allMeals',
+        element : <MealPage></MealPage>
+       },
+       {
+        path : '/upcomingMeals',
+        element : <AllUpcomingMeals></AllUpcomingMeals>
+       },
+       {
+        path : '/checkout/:planName',
+        element : <Checkout></Checkout> ,
+        loader : ({params}) => fetch(`http://localhost:5000/plans/${params.planName}`)
+       },
       ]
     },
 
