@@ -19,6 +19,7 @@ const UpcomingMeals = () => {
             const res = await axiosSecure.get('/upcomingMeals') ;
             return res.data
         }
+      
     })
     
     return (
