@@ -5,6 +5,7 @@ import { Fa500Px } from "react-icons/fa";
 import useAxiosPublic from "../../../../Hooks/UseAxiosPublic";
 import Swal from "sweetalert2";
 import UseAuth from "../../../../Hooks/UseAuth";
+import { AwesomeButton } from "react-awesome-button";
 
 
 const AddMeal = () => {
@@ -186,11 +187,11 @@ const AddMeal = () => {
               type="text" placeholder="imageURL" className="py-3 border pl-3 rounded outline-none w-full mb-6 " />
           </div>
 
-          <button onClick={handleSubmit(onSubmitAddMeal)} className="btn">
-            Add Meal <Fa500Px className="ml-4"></Fa500Px>
+          <button onClick={handleSubmit(onSubmitAddMeal)} className="">
+            <AwesomeButton>Add Meal</AwesomeButton> 
           </button>
-          <button onClick={handleSubmit(onSubmitUpcomingMeal)} className="btn ml-4">
-            Add To Upcoming <Fa500Px className=""></Fa500Px>
+          <button onClick={handleSubmit(onSubmitUpcomingMeal)} className="ml-4">
+           <AwesomeButton type="facebook"> Add To Upcoming</AwesomeButton> 
           </button>
 
 

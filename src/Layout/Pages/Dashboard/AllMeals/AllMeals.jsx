@@ -1,13 +1,45 @@
 import { FaUsers } from "react-icons/fa";
 import UseMeal from "../../../../Hooks/UseMeal";
 import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import useAxiosPublic from "../../../../Hooks/UseAxiosPublic";
 
 
 const AllMeals = () => {
     const [meals , loading, refetch ] = UseMeal() ;
-
+    const axiosPublic = useAxiosPublic() ;
     // { name, category,price,postTime,rating,likes,review,adminName,adminEmail,ingredient,description,
     //     image, _id }
+
+    const handleDeleteMeal = (meal) => {
+      Swal.fire({
+          title: "Are you sure?",
+          text: "You won't be able to revert this!",
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#3085d6",
+          cancelButtonColor: "#d33",
+          confirmButtonText: "Yes, delete it!"
+      }).then(async (result) => {
+          if (result.isConfirmed) {
+              const res = await axiosPublic.delete(`/meals/${meal._id}`);
+              // console.log(res.data);
+              if (res.data.deletedCount > 0) {
+                  // refetch to update the ui
+                  refetch() ;
+                  Swal.fire({
+                      position: "top-end",
+                      icon: "success",
+                      title: `${meal.name} has been deleted`,
+                      showConfirmButton: false,
+                      timer: 1500
+                  });
+              }
+
+
+          }
+      });
+  }
 
     return (
         <div>
@@ -46,7 +78,7 @@ const AllMeals = () => {
             </td>
 
             <td className="text-sm text-[#444] font-normal font-Montserrat text-center " >
-             <button className="bg-red-500 p-2 rounded text-[#fff] ">Delete</button>
+             <button onClick={() => handleDeleteMeal(meal)} className="bg-red-500 p-2 rounded text-[#fff] ">Delete</button>
             </td>
             <td className="text-sm text-[#444] font-normal font-Montserrat text-center " >
            <Link to={`/details/${meal._id}`}>

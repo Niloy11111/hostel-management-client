@@ -8,9 +8,8 @@ const RequestedMeals = () => {
     const {user} = UseAuth() ;
     const axiosSecure = UseAxiosSecure() ;
     
-    
     const {data : requestedMeals =  [], isPending : loading , refetch} = useQuery({
-        queryKey : ['meals'] ,
+        queryKey : ['requestedMeals'] ,
         queryFn : async () => {
             const res = await axiosSecure.get(`/requestedMeals?userEmail=${user?.email}`) ;
             return res.data

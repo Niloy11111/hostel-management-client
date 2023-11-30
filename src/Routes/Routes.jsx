@@ -56,7 +56,7 @@ export const router = createBrowserRouter([
        },
        {
         path : '/checkout/:planName',
-        element : <Checkout></Checkout> ,
+        element : <PrivateRoute><Checkout></Checkout></PrivateRoute> ,
         loader : ({params}) => fetch(`http://localhost:5000/plans/${params.planName}`)
        },
       ]

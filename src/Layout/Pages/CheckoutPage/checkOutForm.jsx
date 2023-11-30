@@ -121,7 +121,23 @@ const CheckOutForm = ({ item }) => {
                 text: "You Have Done the Payment!",
             });
            }
-           
+
+           const paymentInfo = {
+            email : user?.email ,
+            price : totalPrice ,
+            plan : item?.planName ,
+
+           }
+          const res = axiosSecure.post('/payments', paymentInfo)
+            if(res.data?.paymentResult?.insertedId){
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "Your data has been saved",
+                    showConfirmButton: false,
+                    timer: 1500
+                  });
+            }
 
         }
     }

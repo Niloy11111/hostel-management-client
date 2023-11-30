@@ -1,6 +1,6 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { AiOutlineShoppingCart } from "react-icons/ai";
-import { FaAd, FaBook, FaCalendar, FaExchangeAlt, FaHome, FaLeaf, FaList } from 'react-icons/fa';
+import { FaAd, FaBook, FaCalendar, FaExchangeAlt, FaEye, FaGooglePlus, FaHome, FaLeaf, FaList, FaListAlt, FaMedal, FaPray, FaRecordVinyl, FaRedRiver, FaRegQuestionCircle, FaServer, FaUpload, FaUser } from 'react-icons/fa';
 import UseAdmin from "../../../Hooks/UseAdmin";
 
 const Dashboard = () => {
@@ -17,42 +17,42 @@ const Dashboard = () => {
                         <>
                          <li> 
                         <NavLink to='/dashboard/adminProfile'> 
-                       <FaHome></FaHome>
+                       <FaPray></FaPray>
                      Admin Profile</NavLink> </li>
 
                      <li> 
                         <NavLink to='/dashboard/manageUsers'> 
-                       <FaCalendar></FaCalendar>
+                       <FaUser></FaUser>
                         Manage Users</NavLink> </li>
                               
                     <li> 
                         <NavLink to='/dashboard/addMeal'> 
-                       <FaCalendar></FaCalendar>
+                       <FaMedal></FaMedal>
                         Add Meal</NavLink> </li>
                     <li> 
                         <NavLink to='/dashboard/allMeals'> 
-                       <FaCalendar></FaCalendar>
+                       <FaListAlt></FaListAlt>
                         All Meals</NavLink> </li>
                     <li> 
                         <NavLink to='/dashboard/allReviews'> 
-                       <FaCalendar></FaCalendar>
+                       <FaRedRiver></FaRedRiver>
                         All Reviews</NavLink> </li>
               
                     <li> 
                         <NavLink to='/dashboard/serveMeals'> 
-                       <FaCalendar></FaCalendar>
+                       <FaServer></FaServer>
                         Serve Meals</NavLink> </li>
                   
                     <li> 
                         <NavLink to='/dashboard/upcomingMeals'> 
-                       <FaBook></FaBook>
+                       <FaUpload></FaUpload>
                         Upcoming Meals</NavLink> </li>
 
                         
                    
                     <li> 
                         <NavLink to='/'> 
-                       <FaBook></FaBook>
+                       <FaEye></FaEye>
                         Go Home</NavLink> </li>
                    
                     
@@ -62,23 +62,23 @@ const Dashboard = () => {
                         <>
                          <li> 
                         <NavLink to='/dashboard/userProfile'> 
-                       <FaHome></FaHome>
+                        <FaPray></FaPray>
                       My Profile</NavLink> </li>
                               
                     <li> 
                         <NavLink to='/dashboard/requestedMeals'> 
-                       <FaCalendar></FaCalendar>
+                       <FaRegQuestionCircle></FaRegQuestionCircle>
                         Requested Meals</NavLink> </li>
 
 
                     <li> 
                         <NavLink to='/dashboard/userReviews'> 
-                       <FaAd></FaAd>
+                       <FaRecordVinyl></FaRecordVinyl>
                         My Reviews</NavLink> </li>
 
                         <li> 
                         <NavLink to='/'> 
-                       <FaBook></FaBook>
+                       <FaEye></FaEye>
                         Go Home</NavLink> </li>
 
                         </>

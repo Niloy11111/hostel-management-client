@@ -76,10 +76,10 @@ const NavBar = () => {
                     <button className="btn btn-sm  btn-ghost">{user?.displayName}</button>
                 </li>
                 {
-    user && isAdmin && <li>< Link to='/dashboard/adminProfile'>Dashboard</Link></li>
+    user && isAdmin && <li className="ml-10">< Link to='/dashboard/adminProfile'>Dashboard</Link></li>
    }
    {
-    user && !isAdmin && <li>< Link to='/dashboard/userProfile'>Dashboard</Link></li>
+    user && !isAdmin && <li  className="ml-10">< Link to='/dashboard/userProfile'>Dashboard</Link></li>
    }
                 <li>
                     <button onClick={logOut} className="btn btn-sm  btn-ghost"  
@@ -127,7 +127,7 @@ const NavBar = () => {
                
                 </div> */}
                 <div>
-                    <img className="w-[100px]" src="https://nus.edu.sg/osa/assets/images/logo.png"></img>
+                    <img className="w-[100px]" src="https://foodtank.com/wp-content/uploads/2016/08/Food-Tank-Header-Logo.png"></img>
                 </div>
 
             </div>
