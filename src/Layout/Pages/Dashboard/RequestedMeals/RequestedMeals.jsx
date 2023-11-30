@@ -1,12 +1,15 @@
 import { useQuery } from "@tanstack/react-query";
-import UseAuth from "../../../../Hooks/UseAuth";
+
 import UseAxiosSecure from "../../../../Hooks/UseAxiosSecure";
 import Swal from "sweetalert2";
+import { useContext } from "react";
+import { AuthContext } from "../../../../Components/AuthProvider/AuthProvider";
 
 
 const RequestedMeals = () => {
-    const {user} = UseAuth() ;
+    const {user} = useContext(AuthContext);
     const axiosSecure = UseAxiosSecure() ;
+
     
     const {data : requestedMeals =  [], isPending : loading , refetch} = useQuery({
         queryKey : ['requestedMeals'] ,
@@ -47,7 +50,7 @@ const RequestedMeals = () => {
   }
     return (
         <div>
-            <h2 className="text-3xl my-8 font-Montserrat font-bold text-center">Your Requested Meals {requestedMeals.length}</h2>
+            <h2 className="text-3xl my-8 font-Montserrat font-bold text-center">Your Requested Meals {requestedMeals?.length}</h2>
 
             <div>
               
@@ -66,7 +69,7 @@ const RequestedMeals = () => {
       </thead>
       <tbody >
         {
-          requestedMeals.map((meal, index) =><tr key={meal._id}>
+          requestedMeals?.map((meal, index) =><tr key={meal._id}>
               <td className="text-sm text-[#444] font-normal font-Montserrat " >{index+ 1}</td>
               <td className="text-sm text-[#444] font-normal font-Montserrat text-center">{meal.title}</td>
               <td className="text-sm text-[#444] font-normal font-Montserrat text-center">{meal.likeNumber}</td>

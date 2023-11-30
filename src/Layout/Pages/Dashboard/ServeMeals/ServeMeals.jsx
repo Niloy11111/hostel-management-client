@@ -17,7 +17,7 @@ const ServeMeals = () => {
     const {data : allRequests =  [], isPending : loading , refetch} = useQuery({
         queryKey : ['requestedMeals'] ,
         queryFn : async () => {
-            const res = await axiosPublic.get('/requestedMeals') ;
+            const res = await axiosSecure.get('/requestedMeals') ;
             return res.data
         }
     })

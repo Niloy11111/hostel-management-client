@@ -3,7 +3,8 @@ import UseAuth from "../../../../Hooks/UseAuth";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import UseMeal from "../../../../Hooks/UseMeal";
-import UseAxiosSecure from "../../../../Hooks/UseAxiosSecure";
+
+import useAxiosPublic from "../../../../Hooks/UseAxiosPublic";
 
 
 
@@ -12,15 +13,16 @@ const UpcomingMeals = () => {
   const [meals , , , ] = UseMeal() ;
 
     const {user} = UseAuth() ;
-    const axiosSecure = UseAxiosSecure() ;
+    const axiosPublic = useAxiosPublic() ;
     const {data : upcomingMeals =  [], isPending : loading , refetch} = useQuery({
         queryKey : ['upcomingMeals'] ,
         queryFn : async () => {
-            const res = await axiosSecure.get('/upcomingMeals') ;
+            const res = await axiosPublic.get('/upcomingMeals') ;
             return res.data
         }
       
     })
+    
     
     return (
         <div>

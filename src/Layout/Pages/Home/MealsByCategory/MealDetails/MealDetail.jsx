@@ -9,17 +9,18 @@ import useAxiosPublic from "../../../../../Hooks/UseAxiosPublic";
 import UseMeal from "../../../../../Hooks/UseMeal";
 import UseAuth from "../../../../../Hooks/UseAuth";
 import Swal from "sweetalert2";
-import UseAxiosSecure from "../../../../../Hooks/UseAxiosSecure";
+
 import { useForm } from "react-hook-form";
 import { useQuery } from "@tanstack/react-query";
+import UseAxiosSecure from "../../../../../Hooks/UseAxiosSecure";
 
 
 
 const MealDetail = () => {
    const {user} = UseAuth() ;
    const navigate = useNavigate() ;
+   const axiosSecure = UseAxiosSecure() ;
     const axiosPublic = useAxiosPublic() ;
-    const axiosSecure = UseAxiosSecure() ;
     const [meals , loading ] = UseMeal() ;
     const mealDetail = useLoaderData() ;
     const { name, category,price,postTime,rating,likes,review,adminName,adminEmail,ingredient,description,
@@ -30,7 +31,7 @@ const MealDetail = () => {
     const {data : allReviews =  [], refetch} = useQuery({
         queryKey : ['reviews'] ,
         queryFn : async () => {
-            const res = await axiosSecure.get(`/reviews?title=${name}`) ;
+            const res = await axiosPublic.get(`/reviews?title=${name}`) ;
             return res.data ;
            
         }
@@ -56,9 +57,9 @@ const MealDetail = () => {
               console.log(data.data)
             })
           }
-          else{
-            navigate('/login')
-          }
+          // else{
+          //   navigate('/login')
+          // }
           }
             
 

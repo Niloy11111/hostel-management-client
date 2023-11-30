@@ -9,25 +9,28 @@ import ManageUsers from "../Layout/Pages/Dashboard/ManageUsers/ManageUsers";
 import AddMeal from "../Layout/Pages/Dashboard/AddMeal/AddMeal";
 import AllMeals from "../Layout/Pages/Dashboard/AllMeals/AllMeals";
 import AllReviews from "../Layout/Pages/Dashboard/AllReviews/AllReviews";
-import UserProfile from "../Layout/Pages/Dashboard/UserProfile/UserProfile";
+
 import RequestedMeals from "../Layout/Pages/Dashboard/RequestedMeals/RequestedMeals";
 import UserReviews from "../Layout/Pages/Dashboard/UserReviews/UserReviews";
 import ServeMeals from "../Layout/Pages/Dashboard/ServeMeals/ServeMeals";
 import UpcomingMeals from "../Layout/Pages/Dashboard/UpcomingMeals/UpcomingMeals";
 import AdminRoute from "./AdminRoute";
-import PrivateRoute from "./PrivateRoute";
 import MealDetail from "../Layout/Pages/Home/MealsByCategory/MealDetails/MealDetail";
 import UpdateReview from "../Layout/Pages/Dashboard/UserReviews/UpdateReview";
 import UpdateMeal from "../Layout/Pages/Dashboard/AllMeals/UpdateMeal";
 import MealPage from "../Layout/Pages/MealsPage/MealPage";
 import AllUpcomingMeals from "../Layout/Pages/UpcomingMealsPage/AllUpcomingMeals";
 import Checkout from "../Layout/Pages/CheckoutPage/Checkout";
+import PrivateRoute from "./PrivateRoute";
+import UserProfile from "../Layout/Pages/Dashboard/UserProfile/UserProfile";
+import ErrorPage from "../Layout/Pages/ErrorPage/ErrorPage";
 
 
 export const router = createBrowserRouter([
     {
       path: "/",
       element: <Main></Main> ,
+      errorElement : <ErrorPage></ErrorPage> ,
       children : [
        {
         path : '/',
@@ -44,7 +47,7 @@ export const router = createBrowserRouter([
        {
         path : '/details/:id',
         element : <MealDetail></MealDetail>,
-        loader : ({params}) => fetch(`http://localhost:5000/meals/${params.id}`)
+        loader : ({params}) => fetch(`https://hostel-management-server-six.vercel.app/meals/${params.id}`)
        },
        {
         path : '/allMeals',
@@ -57,19 +60,19 @@ export const router = createBrowserRouter([
        {
         path : '/checkout/:planName',
         element : <PrivateRoute><Checkout></Checkout></PrivateRoute> ,
-        loader : ({params}) => fetch(`http://localhost:5000/plans/${params.planName}`)
+        loader : ({params}) => fetch(`https://hostel-management-server-six.vercel.app/plans/${params.planName}`)
        },
       ]
     },
 
     {
       path : 'dashboard',
-      element :<PrivateRoute> <Dashboard></Dashboard> </PrivateRoute>,
+      element : <Dashboard></Dashboard> ,
       children : [
         // admin routes
         {
           path : 'adminProfile',
-          element : <AdminProfile></AdminProfile>
+          element : <AdminRoute><AdminProfile></AdminProfile></AdminRoute>
         },
         {
           path : 'manageUsers',
@@ -77,29 +80,29 @@ export const router = createBrowserRouter([
         },
         {
           path : 'addMeal',
-          element : <AddMeal></AddMeal>
+          element : <AdminRoute><AddMeal></AddMeal></AdminRoute>
         },
         {
           path : 'allMeals',
-          element : <AllMeals></AllMeals>
+          element : <AdminRoute><AllMeals></AllMeals></AdminRoute>
         },
         {
           path : 'allReviews',
-          element : <AllReviews></AllReviews>
+          element : <AdminRoute><AllReviews></AllReviews></AdminRoute>
         },
         {
           path : 'serveMeals',
-          element : <ServeMeals></ServeMeals>
+          element :<AdminRoute> <ServeMeals></ServeMeals></AdminRoute>
         },
         {
           path : 'upcomingMeals',
-          element : <UpcomingMeals></UpcomingMeals>
+          element :<AdminRoute> <UpcomingMeals></UpcomingMeals></AdminRoute>
         },
 
         // user routes
         {
           path : 'userProfile',
-          element : <UserProfile></UserProfile>
+          element : <PrivateRoute>  <UserProfile></UserProfile> </PrivateRoute>
         },
         {
           path : 'requestedMeals',
@@ -107,65 +110,22 @@ export const router = createBrowserRouter([
         },
         {
           path : 'userReviews',
-          element : <UserReviews></UserReviews>
+          element : <PrivateRoute><UserReviews></UserReviews></PrivateRoute>
         },
         {
           path : 'updateReview/:id',
-          element : <UpdateReview></UpdateReview>,
-          loader : ({params}) => fetch(`http://localhost:5000/reviews/${params.id}`)
+          element :<PrivateRoute> <UpdateReview></UpdateReview></PrivateRoute>,
+          loader : ({params}) => fetch(`https://hostel-management-server-six.vercel.app/reviews/${params.id}`)
         },
         {
           path : 'updateMeal/:id',
-          element : <UpdateMeal></UpdateMeal> ,
-          loader : ({params}) => fetch(`http://localhost:5000/meals/${params.id}`)
+          element : <PrivateRoute><UpdateMeal></UpdateMeal> </PrivateRoute>,
+          loader : ({params}) => fetch(`https://hostel-management-server-six.vercel.app/meals/${params.id}`)
         }
 
       ]
     }
     
-    // {
-    //   path : 'dashboard',
-    //   element : <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
-    //   children : [
-    //     {
-    //       path : 'userHome',
-    //       element : <UserHome></UserHome>
-    //     },
-    //     {
-    //       path : 'cart',
-    //       element : <Cart></Cart>
-    //     },
-    //     {
-    //       path : 'payment',
-    //       element : <Payment></Payment>
-    //     },
-    //     {
-    //       path : 'paymentHistory',
-    //       element : <PaymentHistory></PaymentHistory>
-    //     },
-    //     //admin only routes
-    //     {
-    //       path : 'adminHome',
-    //       element : <AdminRoute><AdminHome></AdminHome></AdminRoute>
-    //     },
-    //     {
-    //       path : 'addItems',
-    //       element : <AdminRoute><AddItems></AddItems></AdminRoute>
-    //     },
-    //     {
-    //       path : 'manageItems',
-    //       element : <AdminRoute> <ManageItems></ManageItems> </AdminRoute>
-    //     },
-    //     {
-    //       path : 'updateItem/:id',
-    //       element : <AdminRoute> <UpdateItem></UpdateItem> </AdminRoute>,
-    //       loader : ({params}) => fetch(`http://localhost:5000/menu/${params.id}`)
-    //     },
-    //     {
-    //       path : 'allUsers',
-    //       element : <AdminRoute><AllUsers></AllUsers></AdminRoute>
-    //     },
-    //   ]
-    // }
+   
    
   ]);

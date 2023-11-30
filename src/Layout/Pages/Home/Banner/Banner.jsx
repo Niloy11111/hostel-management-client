@@ -12,7 +12,7 @@ const Banner = () => {
                    <div className="mb-24">
                         <h2 className=" text-[#1d2d5a] text-3xl lg:text-6xl font-Inter font-bold">Hostel & Meal<br />
                         Plan <span className="text-[#3e5aab] italic">Rates.</span>  </h2>
-                        <p className=" mt-4 lg:mt-6 font-inter text-[#494e5d]">Where Appetites Align with Quality, Convenience, and Campus Life</p>        
+                        <p className=" mt-4 lg:mt-6 font-inter text-[#494e5d]">Where Appetites Align with Quality, Convenience, and Campus Life</p>      
                     <div className='mt-6 border-2 flex rounded-full py-1 lg:mt-10  bg-[#FFF]  w-[300px] md:w-[300px] lg:w-[470px] border-[#9adbf5]'>
                         <button type="submit" className='bg-[#feea59] flex items-center justify-center w-[50px] h-[50px] rounded-full ml-2 text-lg font-semibold text-[#333F]'> <BsSearch></BsSearch></button>
                         <input name='category' id='field-id' className='pl-4 outline-none ' type="text" placeholder='Find Foods' />
