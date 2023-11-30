@@ -4,13 +4,14 @@ import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import UseMeal from "../../../../Hooks/UseMeal";
 import UseAxiosSecure from "../../../../Hooks/UseAxiosSecure";
+import useAxiosPublic from "../../../../Hooks/UseAxiosPublic";
 
 
 
 const AllReviews = () => {
     
   const [meals , , , ] = UseMeal() ;
-
+  const axiosPublic = useAxiosPublic() ;
     const {user} = UseAuth() ;
     const axiosSecure = UseAxiosSecure() ;
     const {data : reviews =  [], isPending : loading , refetch} = useQuery({
