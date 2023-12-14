@@ -24,6 +24,8 @@ import Checkout from "../Layout/Pages/CheckoutPage/Checkout";
 import PrivateRoute from "./PrivateRoute";
 import UserProfile from "../Layout/Pages/Dashboard/UserProfile/UserProfile";
 import ErrorPage from "../Layout/Pages/ErrorPage/ErrorPage";
+import Contact from "../Layout/Pages/Contact/Contact";
+import Analytics from "../Layout/Pages/Dashboard/Analytics/Analytics";
 
 
 export const router = createBrowserRouter([
@@ -39,6 +41,10 @@ export const router = createBrowserRouter([
        {
         path : '/login',
         element : <Login></Login>
+       },
+       {
+        path : '/contact',
+        element : <Contact></Contact>
        },
        {
         path : '/register',
@@ -97,6 +103,10 @@ export const router = createBrowserRouter([
         {
           path : 'upcomingMeals',
           element :<AdminRoute> <UpcomingMeals></UpcomingMeals></AdminRoute>
+        },
+        {
+          path : 'analytics',
+          element :<AdminRoute> <Analytics></Analytics></AdminRoute>
         },
 
         // user routes

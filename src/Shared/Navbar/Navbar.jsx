@@ -16,25 +16,25 @@ const NavBar = () => {
     const navlinksBeforeLogin = <>
         <li>
             <NavLink to="/"  className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "  bg-[#1d2d5a] text-[#FFF] px-3 py-3 rounded" : ""
+                isPending ? "pending" : isActive ? "  bg-[#005C98] text-[#FFF] px-3 py-3 rounded" : ""
             }>HOME</NavLink>
         </li>
 
         <li>
             <NavLink to="/allMeals"  className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "  bg-[#1d2d5a] text-[#FFF] px-3 py-3 rounded" : ""
+                isPending ? "pending" : isActive ? "  bg-[#005C98] text-[#FFF] px-3 py-3 rounded" : ""
             }>MEALS</NavLink>
         </li>
 
         <li>
             <NavLink to="/upcomingMeals"  className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "  bg-[#1d2d5a] text-[#FFF] px-3 py-3 rounded" : ""
+                isPending ? "pending" : isActive ? "  bg-[#005C98] text-[#FFF] px-3 py-3 rounded" : ""
             }>UPCOMING MEALS</NavLink>
         </li>
 
         <li>
             <NavLink to='/login'  className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "  bg-[#1d2d5a] text-[#FFF] px-3 py-3 rounded" : ""
+                isPending ? "pending" : isActive ? "  bg-[#005C98] text-[#FFF] px-3 py-3 rounded" : ""
             }>JOIN US</NavLink>
         </li>
 
@@ -43,20 +43,25 @@ const NavBar = () => {
     const navLinks = <>
         <li className="">
             <NavLink to="/"  className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "  bg-[#1d2d5a] text-[#FFF] px-3 py-3 rounded" : ""
+                isPending ? "pending" : isActive ? "  bg-[#005C98] text-[#FFF] px-3 py-3 rounded" : ""
             }>HOME</NavLink>
         </li>
  
         <li>
             <NavLink to="/allMeals"  className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "  bg-[#1d2d5a] text-[#FFF] px-3 py-3 rounded" : ""
+                isPending ? "pending" : isActive ? "  bg-[#005C98] text-[#FFF] px-3 py-3 rounded" : ""
             }>MEALS</NavLink>
         </li>
 
         <li>
             <NavLink to="/upcomingMeals"  className={({ isActive, isPending }) =>
-                isPending ? "pending" : isActive ? "  bg-[#1d2d5a] text-[#FFF] px-3 py-3 rounded" : ""
+                isPending ? "pending" : isActive ? "  bg-[#005C98] text-[#FFF] px-3 py-3 rounded" : ""
             }>UPCOMING MEALS</NavLink>
+        </li>
+        <li>
+            <NavLink to="/contact"  className={({ isActive, isPending }) =>
+                isPending ? "pending" : isActive ? "  bg-[#005C98] text-[#FFF] px-3 py-3 rounded" : ""
+            }>Contact Us</NavLink>
         </li>
 
 
@@ -93,7 +98,7 @@ const NavBar = () => {
 
     </>
     return (
-        <div className="flex px-10 -mx-12 lg:-mx-36 bg-[#9ADBF5] items-center flex-col lg:flex-row py-3 lg:py-4 justify-between  ">
+        <div className="flex px-10 -mx-12 lg:-mx-36 bg-[#0071BA] items-center flex-col lg:flex-row py-3 lg:py-4 justify-between  ">
 
             {/* <div className="flex items-center">
                <h2 className="text-3xl font-bold font-serif"> Job Portal</h2>
@@ -117,11 +122,11 @@ const NavBar = () => {
               {/* <div className="logo flex gap-1 items-center">
                 <div className="flex">
                 <div className="w-[25px] rounded-tr-full  h-[35px] bg-[#FFF]"></div>
-                <div className="w-[25px] rounded-tl-full  h-[35px] bg-[#1d2d5a]"></div>
+                <div className="w-[25px] rounded-tl-full  h-[35px] bg-[#005C98]"></div>
                 </div>
 
 
-         <div className=" text-[27px] flex flex-col text-[#1d2d5a] font-bold font-serif">the 
+         <div className=" text-[27px] flex flex-col text-[#005C98] font-bold font-serif">the 
          <span className="-mt-6">muse</span>
          </div>
                

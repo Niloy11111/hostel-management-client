@@ -64,7 +64,7 @@ const MealPage = () => {
 <div className=' bg-[#FFF] border-purple-500 rounded mt-12  w-2/6 border'>
     
                        <form onSubmit={handleSubmit(onSubmit)}className="flex" action="">
-                       <button type="submit" className='bg-[#feea59] flex items-center rounded-lg m-1 justify-center w-[100px] h-[50px]  text-lg font-semibold text-[#333F]'> <BsSearch></BsSearch></button>
+                       <button type="submit" className='bg-[#FC4A1A] text-white flex items-center rounded-lg m-1 justify-center w-[100px] h-[50px]  text-lg font-semibold text-[#333F]'> <BsSearch></BsSearch></button>
                         <input {...register('title' , {required : true})}  name='title' id='field-id' className='pl-4 w-full outline-none ' type="text" placeholder='Find Food' />
                        </form>
                     </div>

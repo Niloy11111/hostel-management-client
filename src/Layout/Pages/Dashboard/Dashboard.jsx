@@ -47,6 +47,10 @@ const Dashboard = () => {
                         <NavLink to='/dashboard/upcomingMeals'> 
                        <FaUpload></FaUpload>
                         Upcoming Meals</NavLink> </li>
+                    <li> 
+                        <NavLink to='/dashboard/analytics'> 
+                       <FaUpload></FaUpload>
+                        Membership Analytics</NavLink> </li>
 
                         
                    

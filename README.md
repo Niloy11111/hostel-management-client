@@ -51,3 +51,16 @@
 ### Feature- 10 
 ## Applied Job Route 
 ### In this page a user can see on which job he/she applied from the job details route .
+
+
+### Unique Feature --> 01 
+## Contact Us
+### On the 'Contact Us' page, users can send messages to us via email. I have implemented EmailJS for this feature. 
+
+### Unique Feature --> 02 
+## Membership Analytics
+### I added a Membership Analytics page to the Admin dashboard. It shows the percentage distribution of our three Meal Plans: Silver, Gold, and Platinum .
+
+### Project Selling Line ~
+
+### UniMeals: Revolutionize campus dining with our full-stack MERN hostel management site. Elegant design, user-friendly navigation, exclusive memberships, seamless checkout, plus admin and user dashboards. Elevate your dining experience today on GitHub!.

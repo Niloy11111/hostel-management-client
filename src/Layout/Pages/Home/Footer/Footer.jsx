@@ -2,7 +2,7 @@ import { FaFacebook,FaInstagramSquare,FaYoutube, FaLinkedin , FaTwitterSquare } 
 
 const Footer = () => {
     return (
-      <div className="-mx-36 h-[40vh] bg-[#1a2851] ">
+      <div className="-mx-36 h-[40vh] bg-[#005C98] ">
           <footer className=" footer p-10 text-base-content flex justify-center gap-20">
           
 
@@ -10,11 +10,11 @@ const Footer = () => {
          
                
              
-  <nav>
+  <nav className="text-white">
   <div className=" text-[36px] flex flex-col text-[#FFF] font-bold font-serif">
          <span className="">foodtank</span>
          </div>
-    <header className="footer-title">ABOUT THE Foodtank</header> 
+    <header className="footer-title text-white">ABOUT THE Foodtank</header> 
     <a className="link link-hover">Branding</a> 
     <a className="link link-hover">Design</a> 
     <a className="link link-hover">Marketing</a> 
