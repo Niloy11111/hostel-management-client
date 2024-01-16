@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../../Components/AuthProvider/AuthProvider';
 import useAxiosPublic from '../../../Hooks/UseAxiosPublic';
-
+import img from '../../../../public/Secure login.gif'
 
 
 const Login = () => {
@@ -68,8 +68,11 @@ const Login = () => {
     return <>
         <div className="rounded  flex lg:justify-center lg:items-center h-full lg:h-[84vh]">
 
+            <div>
+            <img src={img}></img>
+            </div>
 
-            <div className="lg:border">
+            <div className="">
 
                 <div className="">
                     <form onSubmit={handleSubmit(onSubmit)} className="px-7 lg:px-14 rounded  lg:w-[570px]">
@@ -77,7 +80,7 @@ const Login = () => {
 
                         <div>
 
-                            <input className="bg-[#FFF]  py-3 outline-none w-full border b block pl-5 pb-3 mb-8" type="emial" placeholder="Username or Email" {...register("email", { required: true })} name="email" required />
+                            <input className="bg-[#FFF]  py-2 outline-none w-full border b block pl-5 pb-3 mb-8" type="emial" placeholder="Username or Email" {...register("email", { required: true })} name="email" required />
                             {errors.email && <span className="text-red-600">email is required</span>}
 
 
@@ -85,7 +88,7 @@ const Login = () => {
 
                                 <input type={showPassword ? "text" : "password"}
                                     placeholder="password"
-                                    className="border py-3 outline-none block pl-5 pb-3  bg-[#FFF] w-full" name='password'{...register("password", {
+                                    className="border py-2 outline-none block pl-5 pb-3  bg-[#FFF] w-full" name='password'{...register("password", {
                                         required: true,
                                         minLength: 6,
                                         maxLength: 20,
@@ -127,7 +130,7 @@ const Login = () => {
                             <a className="text-blue-500">Terms and Conditions</a>
                         </div>
 
-                        <input className="cursor-pointer py-4 mx-auto w-full mb-4 text-[#FFF] font-Inter font-semibold bg-[#009EE2] " type="submit" value="Login" />
+                        <input className="cursor-pointer py-2 mx-auto w-full mb-4 text-[#FFF] font-Inter font-semibold bg-[#009EE2] " type="submit" value="Login" />
 
 
                         <p className="text-center text-base font-Inter text-[#00000080]">Don't have an account? <Link to='/register'>
@@ -145,7 +148,7 @@ const Login = () => {
                     </div>
 
 
-                    <div onClick={handleGoogleLogin} className="cursor-pointer w-4/5 mx-auto justify-center flex items-center gap-2 mb-7 mt-2 py-3 text-base border  bg-[#FFF]">
+                    <div onClick={handleGoogleLogin} className="cursor-pointer w-4/5 mx-auto justify-center flex items-center gap-2 mb-7 mt-2 py-2 text-base border  bg-[#FFF]">
                         <div className="flex items-center gap-2">
                             <FcGoogle className="text-2xl"></FcGoogle>
                             <h2 className="font-semibold text-[#00000080] font-Inter">Continue with Google</h2>

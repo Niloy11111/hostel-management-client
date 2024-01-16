@@ -3,7 +3,7 @@ import MealCard from "../MealCard/MealCard";
 
 const MealTab = ({items}) => {
     return (
-        <div className='grid grid-cols-3 gap-6'>
+        <div className='grid grid-cols-4 gap-6'>
         {
             items.map(item => <MealCard
                 item={item}

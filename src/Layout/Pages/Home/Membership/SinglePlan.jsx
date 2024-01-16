@@ -1,27 +1,43 @@
 import { PiArrowElbowRightLight } from "react-icons/pi";
-import { AwesomeButton } from 'react-awesome-button';
 import { Link } from "react-router-dom";
+import "../../../../Css/App.css";
 
-const SinglePlan = ({plan}) => {
-    const {planName, advantages, description, price} = plan ;
-    return (
+const SinglePlan = ({ plan }) => {
+  const { planName, advantages, description, price } = plan;
+  return (
+    <div className="border p-6 h-[700px] mx-2 bg-white ">
+      <h2 className="text-5xl my-8 font-Montserrat font-medium text-center text-[#E37714]">
+        {planName}
+      </h2>
+      <div className="h-3/6">
+        {advantages.map((item, index) => (
+          <p
+            key={index}
+            className="mb-3 justify-center font-inter font-semibold flex items-center gap-3  "
+          >
+            {" "}
+            <PiArrowElbowRightLight className=""></PiArrowElbowRightLight>{" "}
+            {item}{" "}
+          </p>
+        ))}
+      </div>
+
+      <div className="memberCard">
+        <h2 className="text-5xl my-8 font-Montserrat font-medium text-center ">
+          ${price} Monthly
+        </h2>
         <Link to={`/checkout/${planName}`}>
-        <div className="border p-6">
-        <h2 className="text-5xl my-8 font-Montserrat font-bold text-center">{planName}</h2>
-        {
-            advantages.map((item, index) =>  <p
-                key={index}
-                className="mb-3 justify-center font-Montserrat font-normal text-sm flex items-center gap-3 "> <PiArrowElbowRightLight></PiArrowElbowRightLight> {item} </p>)
-        }
-      
-      <div className="mt-32">
-      <h2 className="text-5xl my-8 font-Montserrat font-bold text-center text-green-400">${price} Monthly</h2>
-       <div className="flex justify-center">
-       <button className=""><AwesomeButton  className="block" type="github">Make Deal</AwesomeButton></button></div> 
+          <div className="flex justify-center">
+            <div className="button relative flex justify-center bg-[#E37714] w-[130px] h-[45px] mx-auto">
+              <div className="flex justify-center items-center font-semibold font-Inter  w-[130px] top-2 right-2 absolute h-[45px] border-4 border-[#E37714] text-[#E37714] bg-white">
+                Make Deal
+              </div>
+            </div>
+          </div>
+        </Link>
+      </div>
     </div>
-      </div></Link>
-    
-    );
+  );
 };
 
 export default SinglePlan;
