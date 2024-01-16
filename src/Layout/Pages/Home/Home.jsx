@@ -1,5 +1,6 @@
 import { Helmet } from "react-helmet";
 
+import SocialLink from "../../../Shared/SocialLinks/SocialLink";
 import Banner from "./Banner/Banner";
 import Footer from "./Footer/Footer";
 import MealsByCategory from "./MealsByCategory/MealsByCategory";
@@ -31,7 +32,9 @@ const Home = () => {
         <MealsByCategory></MealsByCategory>
         <Membership></Membership>
         <Footer></Footer>
+        <SocialLink></SocialLink>
       </div>
+      <div className="h-[15vh]"></div>
     </div>
   );
 };
