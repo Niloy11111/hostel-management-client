@@ -2,6 +2,8 @@ import { useQuery } from "@tanstack/react-query";
 import UseAuth from "../../../Hooks/UseAuth";
 
 import useAxiosPublic from "../../../Hooks/UseAxiosPublic";
+import SocialLink from "../../../Shared/SocialLinks/SocialLink";
+import Footer from "../Home/Footer/Footer";
 import SingleUpcoming from "./SingleUpcoming";
 
 const AllUpcomingMeals = () => {
@@ -69,17 +71,21 @@ const AllUpcomingMeals = () => {
         </p>
       </div>
 
-      <div className="pb-20">
-        {/* <h2 className="text-3xl my-8 font-Montserrat font-bold text-center">
-          Total Upcoming Meals {upcomingMeals?.length}{" "}
-        </h2> */}
+      <div className="py-20 bg-blend-color bg-[#000000ab] ">
+        <h2 className="text-3xl mb-10 text-white font-Montserrat font-bold text-center">
+          Our Upcoming Meals{" "}
+        </h2>
 
-        <div className="grid grid-cols-4 gap-6">
+        <div className="grid grid-cols-4 w-7/12 mx-auto gap-6">
           {upcomingMeals?.map((meal) => (
             <SingleUpcoming key={meal._id} meal={meal}></SingleUpcoming>
           ))}
         </div>
       </div>
+
+      <Footer></Footer>
+
+      <SocialLink></SocialLink>
     </div>
   );
 };
