@@ -74,6 +74,7 @@ const Register = () => {
     googleSignIn()
       .then((res) => {
         console.log(res.user);
+        navigate("/");
         // const userInfo = {
         //   email : res.user?.email,
         //   name : res.user?.displayName
