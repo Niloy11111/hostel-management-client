@@ -93,7 +93,7 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className="bg-white mb-16 w-3/6 mx-auto p-8">
+        <div className="bg-white mb-16 w-3/6 mx-auto p-12">
           <h2 className="text-3xl font-Montserrat font-bold  ">
             Your Feedback Matters
           </h2>
@@ -216,7 +216,7 @@ const Contact = () => {
               ></textarea>
             </div>
 
-            <div className="mt-8 relative bg-[#939A00] w-[100px] h-[40px] ">
+            <div className="cursor-pointer mt-8 relative bg-[#939A00] w-[100px] h-[40px] ">
               <div className="flex justify-center items-center font-semibold font-Inter  w-[100px] top-2 right-2 absolute h-[40px] border-4 border-[#939A00] text-[#939A00] bg-white">
                 Submit
               </div>
@@ -227,50 +227,6 @@ const Contact = () => {
         <Footer></Footer>
 
         <SocialLink></SocialLink>
-
-        {/* <h2 className="text-[rgb(58,68,73)] text-center my-10 text-xl">
-          If you would like more information, have questions about Meal Plans,
-          or need help with anything involving <br />
-          on-campus dining, please contact us:
-        </h2>
-
-        <div className="w-2/3 mx-auto mb-20">
-          <h2 className="text-2xl font-Inter font-medium text-center mb-10">
-            WE ARE WAITING FOR YOUR VALUABLE FEEDBACK
-          </h2>
-
-          <form ref={form} onSubmit={sendEmail}>
-            <div className="mt-5 flex gap-5">
-              <input
-                className="outline-none pl-2 rounded-lg border-2 border-[##FFFFFF] py-3 w-full"
-                placeholder="Name"
-                type="text"
-                name="from_name"
-                id=""
-              />
-              <input
-                className="outline-none pl-2 rounded-lg border-2 py-3 w-full"
-                placeholder="Email"
-                type="email"
-                name="from_email"
-                id=""
-              />
-            </div>
-
-            <textarea
-              className="w-full mt-4 outline-none pl-2 rounded-lg border-2"
-              name="message"
-              id=""
-              placeholder="Message"
-              cols="50"
-              rows="5"
-            ></textarea>
-
-            <button className="py-3 px-6 bg-[#0071BA] font-medium font-Inter text-white rounded mt-5">
-              Send Message
-            </button>
-          </form>
-        </div> */}
       </div>
     </div>
   );

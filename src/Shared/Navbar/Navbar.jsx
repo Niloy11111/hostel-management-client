@@ -202,7 +202,8 @@ const NavBar = () => {
 
         <div className="">
           <h2 className="font-semibold font-Inter text-xl">
-            FoodTank <span className="font-normal">Meal Services</span>{" "}
+            Melbourne University{" "}
+            <span className="font-normal">Dining Services</span>{" "}
           </h2>
         </div>
       </div>
