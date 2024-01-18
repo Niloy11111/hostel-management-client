@@ -1,7 +1,8 @@
 const Footer = () => {
   return (
-    <div className="h-[46vh] bg-blend-color bg-[#000000ab] ">
-      {/*       
+    <div className="h-[46vh] bg-blend-color bg-[#000000ab]">
+      {/*      
+      bg-[#000000ab] 
       <footer className=" footer p-10 text-base-content flex justify-center gap-20">
         <nav className="text-white">
           <div className=" text-[36px] flex flex-col text-[#FFF] font-bold font-serif">
