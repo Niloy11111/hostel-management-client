@@ -68,7 +68,7 @@ const Login = () => {
         backgroundAttachment: "fixed",
       }}
     >
-      <div className="bg-blend-color bg-[#000000ab] py-16 ">
+      <div className="bg-blend-color bg-[#000000ab] py-20 ">
         <div className="flex justify-center gap-40">
           <div className="relative bg-[#E0EB19] w-[400px] h-[100px] ">
             <div className="flex justify-center items-center font-bold font-Inter  w-[400px] top-4 right-4 absolute h-[100px] text-[#000000] bg-white text-6xl">
@@ -94,24 +94,6 @@ const Login = () => {
                 >
                   Social Media
                 </a>
-                {/* <a
-                  className="text-[#D6D6D6] font-Inter font-medium border-b border-[#444] pb-4"
-                  href=""
-                >
-                  Our People
-                </a>
-                <a
-                  className="text-[#D6D6D6] font-Inter font-medium border-b border-[#444] pb-4"
-                  href=""
-                >
-                  Community Involvement
-                </a>
-                <a
-                  className="text-[#D6D6D6] font-Inter font-medium pb-4"
-                  href=""
-                >
-                  Careers
-                </a> */}
               </ul>
             </div>
           </div>
@@ -136,13 +118,11 @@ const Login = () => {
             </div>
             <div className="w-[250px]">
               <h2 className="text-3xl font-Inter font-bold text-center  text-[#E37714]">
-                Feeling Sick?
+                Pay Your Way
               </h2>
               <div className="h-[4px] mt-4 w-[80px] bg-[#EE913C] mx-auto"></div>
               <p className="font-medium font-Inter text-[#000000] text-center mt-5">
-                Order a flu meal—a special assortment of soothing foods like
-                bananas, rice, soup, tea, or yogurt your flu buddy can bring to
-                you so you can focus on feeling better.
+                Pay for your meal with a meal swipe.
               </p>
             </div>
             <div className="w-[250px]">
