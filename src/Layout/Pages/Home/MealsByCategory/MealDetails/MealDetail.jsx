@@ -9,16 +9,19 @@ import UseMeal from "../../../../../Hooks/UseMeal";
 
 import { Rating } from "@smastrom/react-rating";
 import { useQuery } from "@tanstack/react-query";
+import Lottie from "lottie-react";
 import { useForm } from "react-hook-form";
 import { AiOutlineLike } from "react-icons/ai";
-import { BiCurrentLocation } from "react-icons/bi";
-import { FaClock } from "react-icons/fa";
-import { MdOutlineRateReview } from "react-icons/md";
 import { TiTick } from "react-icons/ti";
+import { Navigation } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import groovyWalkAnimation from "../../../../../../public/bannerAnimation/is5WNsFx8i.json";
 import UseAxiosSecure from "../../../../../Hooks/UseAxiosSecure";
 import SocialLink from "../../../../../Shared/SocialLinks/SocialLink";
 import Footer from "../../Footer/Footer";
-// import "../TabCss/Tab.css";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
 
 const MealDetail = () => {
   const { user } = UseAuth();
@@ -43,6 +46,8 @@ const MealDetail = () => {
     _id,
   } = mealDetail;
 
+  console.log("details", mealDetail);
+
   const { register, handleSubmit } = useForm();
 
   const { data: allReviews = [], refetch } = useQuery({
@@ -63,7 +68,6 @@ const MealDetail = () => {
       const mealInfo = { title, mealId, state };
       axiosPublic.post("/likedMeals", mealInfo).then((data) => {
         refetch();
-        console.log(data.data);
       });
     }
     // else{
@@ -146,165 +150,139 @@ const MealDetail = () => {
   };
 
   return (
-    <div
-      className=" -mx-16  lg:-mx-36 "
-      style={{
-        backgroundImage: `URL(
-            ${image}
-          )`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundAttachment: "fixed",
-      }}
-    >
-      <div className="h-[78vh] flex justify-center items-center   font-Inter font-bold px-5 py-4  ">
-        <div>
-          <div className="bg-white p-4 text-6xl"> {name}</div>
-          <div className="flex gap-3 justify-center bg-blend-color bg-[#121212B3] w-[500px] mx-auto">
-            <div className="py-2 flex gap-3">
-              <div>
-                {" "}
-                <FaClock className="mt-1.5 text-[#939A00] text-lg"></FaClock>
-              </div>
-              <div>
-                <p className="text-lg font-semibold font-Inter text-white">
-                  Post Time
+    <div>
+      <div className=" my-20">
+        <div className="relative">
+          <div className="flex justify-between ">
+            <div className="flex items-center">
+              <div className="">
+                <div className="flex justify-center mb-5">
+                  <Rating style={{ maxWidth: 180 }} value={rating} readOnly />
+                </div>
+                <h2 className="text-3xl lg:text-4xl text-center text-white font-Inter font-extrabold">
+                  <span className=" text-[#EB3656] uppercase">
+                    {" "}
+                    {name?.split(" ")[0]} {name?.split(" ")[1]}
+                  </span>
+                </h2>
+                <p className="w-[600px] text-center font-Inter mt-2 text-white">
+                  {description?.slice(0, 210)}
                 </p>
-                <p className="text-lg font-semibold font-Inter text-white">
-                  {postTime}
-                </p>
+                <div className="mt-8 flex items-center justify-center gap-2">
+                  <button
+                    onClick={handleMealRequest}
+                    className=" px-8 py-2 font-Inter  font-medium hover:bg-[#870012] transition-all duration-200 bg-[#EB3656] rounded text-white"
+                  >
+                    Make Request
+                  </button>
+                  <button
+                    className="text-2xl p-2 text-white transition-all duration-200 hover:bg-[#870012] bg-[#EB3656] rounded flex justify-center items-center "
+                    onClick={handleLikeClick}
+                    style={likeButtonStyle}
+                  >
+                    <AiOutlineLike className="text-white"></AiOutlineLike>
+                  </button>
+                </div>
               </div>
             </div>
-            <div className="py-2 flex gap-3">
-              <div>
-                {" "}
-                <BiCurrentLocation className="mt-1.5 text-[#939A00] text-2xl"></BiCurrentLocation>
+
+            <div className="">
+              <img
+                className="w-[700px] h-[700px] rounded-3xl"
+                src={image}
+              ></img>
+            </div>
+          </div>
+
+          <div className="border border-[#444] bg-[#161515]  rounded-xl   w-2/3  absolute bottom-0 ">
+            <div className="py-7 text-white">
+              <div className="flex gap-5 justify-center">
+                <h2 className="text-xl mb-2   font-medium font-Inter text-center">
+                  Post Time {postTime}
+                </h2>{" "}
+                <span className="text-[#870012] ext-xl mb-2   font-medium font-Inter text-center">
+                  ||
+                </span>
+                <h2 className="text-xl mb-2   font-medium font-Inter text-center">
+                  Total Review {allReviews?.length}
+                </h2>
+                <span className="text-[#870012] ext-xl mb-2   font-medium font-Inter text-center">
+                  ||
+                </span>
+                <h2 className="text-xl mb-2   font-medium font-Inter text-center">
+                  Likes {likes}
+                </h2>
               </div>
-              <div>
-                <p className="text-lg font-semibold font-Inter text-white">
-                  Total Review
-                </p>
-                <p className="text-lg font-semibold font-Inter text-white">
-                  {allReviews?.length}
-                </p>
+              <h2 className="text-2xl mb-2   font-bold font-Inter text-center">
+                Ingredients :
+              </h2>
+              <div className="flex flex-wrap items-center  mx-auto justify-center ">
+                {ingredient.slice(0, 4).map((item, index) => (
+                  <span
+                    key={index}
+                    className="mr-3 text-[17px] font-Inter  font-medium font-inter flex items-center gap-2"
+                  >
+                    {" "}
+                    <TiTick className="text-2xl text-[#870012]"></TiTick> {item}{" "}
+                  </span>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="bg-blend-color bg-[#121212B3] flex justify-around items-center">
+
+      <h2 className="font-Inter uppercase text-center mt-10 text-white text-3xl lg:text-4xl font-bold ">
+        Add Your <span className="text-[#EB3656]">Thoughts</span> Here{" "}
+      </h2>
+
+      <div className="flex items-center justify-center h-[40vh] gap-20">
         <div>
-          <p className="text-lg font-semibold font-Inter text-white">{name}</p>
-        </div>
-
-        <div className="flex gap-10 ">
-          <p className="text-lg font-semibold font-Inter text-white">About</p>
-          <p className="text-lg font-semibold font-Inter text-white">
-            Did you like it ?
-          </p>
-          <button onClick={handleLikeClick} style={likeButtonStyle}>
-            <AiOutlineLike className="text-2xl text-[#939A00] -ml-8"></AiOutlineLike>
-          </button>
-        </div>
-
-        <div>
-          <div className="flex justify-center  w-[450px] mx-auto">
-            <div className="py-2 flex gap-3">
-              <div>
-                {" "}
-                <FaClock className="mt-1.5 text-[#939A00] text-lg"></FaClock>
-              </div>
-              <div>
-                <p className="text-lg font-semibold font-Inter text-white">
-                  Open today
-                </p>
-                <p className="text-lg font-semibold font-Inter text-white">
-                  11:00 AM - 6:00 PM
-                </p>
-              </div>
-            </div>
-            <div className="py-2 flex gap-3">
-              <div>
-                {" "}
-                <BiCurrentLocation className="mt-1.5 text-[#939A00] text-2xl"></BiCurrentLocation>
-              </div>
-              <div>
-                <p className="text-lg font-semibold font-Inter text-white">
-                  Find it on
-                </p>
-                <p className="text-lg font-semibold font-Inter text-white">
-                  Central Campus
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div className="bg-white h-[50vh] w-full">
-        <div className="flex justify-center pt-2">
-          <Rating style={{ maxWidth: 180 }} value={rating} readOnly />
-        </div>
-        <h2 className="text-[17px] text-black w-2/3 pt-12 mx-auto font-semibold font-inter">
-          {description}
-        </h2>
-
-        <div className="">
-          <h2 className="text-2xl mb-5 text-black  pt-16  font-bold font-inter text-center">
-            Ingredients :
-          </h2>
-          <div className="flex flex-wrap items-center w-[60%] mx-auto justify-center h-[50px]">
-            {ingredient.map((item, index) => (
-              <span
-                key={index}
-                className="mr-3 text-[17px] text-black font-semibold font-inter flex items-center gap-2"
-              >
-                {" "}
-                <TiTick className="text-2xl text-[#939A00]"></TiTick> {item}{" "}
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
-      <div className="h-[50vh] bg-blend-color bg-[#000000ab] ">
-        <div className="w-3/6 mx-auto flex justify-center gap-20">
           <div className="flex-1">
-            <h2 className="pt-10 pb-2 mb-10 font-inter text-center border-b-4 border-[#939A00] text-white text-3xl font-bold">
-              Add Your Thoughts Here{" "}
-            </h2>
-
             <form onSubmit={handleSubmit(onSubmit)}>
               <textarea
-                className="outline-none border-2 w-full  mb-3"
+                className="outline-none rounded-lg border-2 w-[600px]  mb-3 pl-5 pt-5 font-Inter text-sm"
                 {...register("review", { required: true })}
                 id=""
-                cols="40"
+                cols="50"
                 rows="6"
               ></textarea>
 
               <div className="">
-                <button className="inActive px-8 py-3 ">Make Review</button>
+                <button className=" px-8 py-2 font-Inter  font-medium hover:bg-[#870012] transition-all duration-200 bg-[#40A2D8] rounded text-white">
+                  Make Review
+                </button>
               </div>
             </form>
           </div>
+        </div>
 
-          <div className="flex-1">
-            <h2 className="text-3xl pb-2  my-10  font-inter text-center border-b-4 border-[#939A00] text-white font-bold">
-              Our Customers Opinion
-            </h2>
-            <div className="text-white font-Inter text-lg font-semibold">
-              {allReviews.map((item) => (
-                <li
-                  className="list-none flex items-center gap-3 "
-                  key={item._id}
-                >
-                  <MdOutlineRateReview className="text-[#939A00]"></MdOutlineRateReview>{" "}
-                  {item.review}
-                </li>
-              ))}
-            </div>
-          </div>
+        <div>
+          <Lottie
+            className=""
+            animationData={groovyWalkAnimation}
+            loop={true}
+          />
         </div>
       </div>
+
+      <div className="">
+        <h2 className="font-Inter uppercase text-center my-10 text-white text-3xl lg:text-4xl font-bold ">
+          Word from our <span className="text-[#EB3656]">customers</span>{" "}
+        </h2>
+        <div className="">
+          <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+            {allReviews.map((item) => (
+              <SwiperSlide className=" text-white " key={item._id}>
+                <div className="bg-white w-9/12 h-[20vh] mx-auto rounded-xl flex justify-center items-center">
+                  <p className="mx-10 text-black"> {item.review}</p>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
+
       <Footer></Footer>
       <SocialLink></SocialLink>
     </div>

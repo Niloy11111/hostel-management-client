@@ -3,7 +3,7 @@ import NavBar from "../Shared/Navbar/Navbar";
 
 const Main = () => {
   return (
-    <div className="px-12 lg:px-36">
+    <div className="lg:px-64 px-12 bg-[#161515] ">
       <NavBar></NavBar>
       <Outlet></Outlet>
     </div>

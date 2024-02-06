@@ -6,6 +6,8 @@ import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../../Components/AuthProvider/AuthProvider";
 import useAxiosPublic from "../../../Hooks/UseAxiosPublic";
+import SocialLink from "../../../Shared/SocialLinks/SocialLink";
+import Footer from "../Home/Footer/Footer";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -90,84 +92,83 @@ const Register = () => {
   };
 
   return (
-    <div
-      className=" -mx-16  lg:-mx-36 "
-      style={{
-        backgroundImage: `URL(
-      "https://www.bu.edu/dining/files/2017/10/GSU_PKG_FOOD_17-1870-DINING-015-1920x1080.jpg"
-    )`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundAttachment: "fixed",
-      }}
-    >
-      <div className="rounded  flex lg:justify-center lg:items-center h-full lg:h-[130vh]">
-        <div className=" bg-white p-16">
-          <div className="">
-            <form onSubmit={handleSubmit(onSubmit)} className="rounded  ">
-              <div className="mb-10 button mx-auto relative  bg-[#939A00] w-[250px] h-[45px] ">
-                <div className="flex justify-center items-center font-semibold font-Inter  w-[250px] top-2 right-2 absolute h-[45px] border-4 border-[#939A00] text-[#939A00] bg-white">
-                  Register Please
+    <div>
+      <div className=" my-20">
+        <div className="bg-white flex  rounded-3xl w-2/3 h-[550px]  mx-auto">
+          <div className="flex-1  text-[#FFF]  rounded-tr-[170px] rounded-br-[100px] bg-[#EB3656] flex justify-center items-center rounded-3xl">
+            <div className="">
+              <h2 className="mb-4 text-3xl font-Inter font-bold  text-center">
+                Login
+              </h2>
+              <p className="text-center mb-4 font-Inter ">
+                Already have an account? You can
+              </p>
+              <div className="flex justify-center ">
+                <Link to="/login">
+                  <button className=" px-8 py-2 font-Inter  font-medium hover:bg-[#870012] transition-all duration-200 border border-[#fff] hover:border-none  text-white rounded">
+                    SIGN IN
+                  </button>
+                </Link>{" "}
+              </div>
+            </div>
+          </div>
+
+          <div className="flex-1 py-8 pl-8">
+            <h2 className="my-5 text-[#000] text-3xl font-Inter font-bold  text-center">
+              Create Account With
+            </h2>
+            <div className="flex gap-5 items-center justify-center">
+              <div
+                onClick={handleGoogleLogin}
+                className="cursor-pointer justify-center flex items-center gap-2 mb-3 mt-2 py-2 px-5 rounded text-base border "
+              >
+                <div className="flex items-center gap-2">
+                  <FcGoogle className="text-2xl"></FcGoogle>
                 </div>
               </div>
-
+              <p className="text-[#000] font-Inter text-center mb-3 ">
+                or use your email password
+              </p>
+            </div>
+            <form onSubmit={handleSubmit(onSubmit)} className="">
               <div>
-                <div>
-                  <h2 className="mt-6 text-2xl font-Inter font-bold  border-b-4 border-[#B7C011] max-w-min">
-                    Name
-                  </h2>
-                  <input
-                    className="  bg-[#FFF]   py-3 outline-none block  pb-3  border-b border-[#B7C011] w-[400px]"
-                    type="text"
-                    placeholder="Your Name"
-                    {...register("name", { required: true })}
-                    name="name"
-                  />
-                  {errors.name && (
-                    <span className="text-red-600">Name is required</span>
-                  )}
-                </div>
+                <input
+                  className="bg-[#FFF] mb-5 py-2 outline-none  border  w-[400px]  block pb-3 pl-3 rounded-lg"
+                  type="text"
+                  placeholder="Your Name"
+                  {...register("name", { required: true })}
+                  name="name"
+                />
+                {errors.name && (
+                  <span className="text-[#D24821] ">Name is required</span>
+                )}
 
-                <div className="mt-6 ">
-                  <h2 className=" text-2xl font-Inter font-bold  border-b-4 border-[#B7C011] max-w-min">
-                    Photo
-                  </h2>
-                  <input
-                    className="bg-[#FFF]   py-3 outline-none block  pb-3 border-b border-[#B7C011] w-[400px]"
-                    type="text"
-                    placeholder="photo URL"
-                    {...register("photoURL", { required: true })}
-                  />
-                  {errors.photoURL && (
-                    <span className="text-red-600">photo is required</span>
-                  )}
-                </div>
+                <input
+                  className="bg-[#FFF] mb-5 py-2 outline-none  border  w-[400px]  block pb-3 pl-3 rounded-lg"
+                  type="text"
+                  placeholder="photo URL"
+                  {...register("photoURL", { required: true })}
+                />
+                {errors.photoURL && (
+                  <span className="text-[#D24821] ">photo is required</span>
+                )}
 
-                <div className="mt-6">
-                  <h2 className=" text-2xl font-Inter font-bold  border-b-4 border-[#B7C011] max-w-min">
-                    Email
-                  </h2>
-                  <input
-                    className="  bg-[#FFF]   py-3 outline-none block  pb-3 border-b border-[#B7C011] w-[400px]"
-                    type="emial"
-                    placeholder="Username or Email"
-                    {...register("email", { required: true })}
-                    name="email"
-                    required
-                  />
-                  {errors.email && (
-                    <span className="text-red-600">email is required</span>
-                  )}
-                </div>
-
-                <div className="relative">
-                  <h2 className="mt-6 text-2xl font-Inter font-bold  border-b-4 border-[#B7C011] max-w-min">
-                    Password
-                  </h2>
+                <input
+                  className="bg-[#FFF] mb-5 py-2 outline-none  border  w-[400px]  block pb-3 pl-3 rounded-lg"
+                  type="emial"
+                  placeholder="Username or Email"
+                  {...register("email", { required: true })}
+                  name="email"
+                  required
+                />
+                {errors.email && (
+                  <span className="text-[#D24821] ">email is required</span>
+                )}
+                <div className="relative mb-4 w-[400px]">
                   <input
                     type={showPassword ? "text" : "password"}
                     placeholder="password"
-                    className="  bg-[#FFF]   py-3 outline-none block  pb-3 mb-8 border-b border-[#B7C011] w-[400px]"
+                    className="bg-[#FFF] mb-5 py-2 outline-none  border  w-[400px]  block pb-3 pl-3 rounded-lg"
                     name="password"
                     {...register("password", {
                       required: true,
@@ -179,20 +180,20 @@ const Register = () => {
                   />
 
                   {errors.password?.type === "required" && (
-                    <p className="text-red-600">Password is required</p>
+                    <p className="text-[#D24821] ">Password is required</p>
                   )}
                   {errors.password?.type === "minLength" && (
-                    <p className="text-red-600">
+                    <p className="text-[#D24821] ">
                       Password must be at least 6 characters
                     </p>
                   )}
                   {errors.password?.type === "maxLength" && (
-                    <p className="text-red-600">
+                    <p className="text-[#D24821] ">
                       Password must be less than 20 characters
                     </p>
                   )}
                   {errors.password?.type === "pattern" && (
-                    <p className="text-red-600">
+                    <p className="text-[#D24821] ">
                       Password must contain at least one uppercase letter, one
                       lowercase letter, one number, and one special character
                     </p>
@@ -200,12 +201,12 @@ const Register = () => {
 
                   <span
                     onClick={() => setShowPassword(!showPassword)}
-                    className="text-xl cursor-pointer absolute top-12 text-[] right-2"
+                    className="text-xl cursor-pointer absolute right-2 bottom-3"
                   >
                     {showPassword ? (
-                      <AiFillEye className="text-[#939A00]"></AiFillEye>
+                      <AiFillEye className="text-[#D24821] "></AiFillEye>
                     ) : (
-                      <AiFillEyeInvisible className="text-[#939A00]"></AiFillEyeInvisible>
+                      <AiFillEyeInvisible className="text-[#D24821] "></AiFillEyeInvisible>
                     )}
                   </span>
                 </div>
@@ -217,44 +218,22 @@ const Register = () => {
                   {" "}
                   Accept our{" "}
                 </label>
-                <a className="font-Inter text-[#D24821] font-medium">
+                <a className="text-[#D24821] font-Inter font-medium">
                   Terms and Conditions
                 </a>
               </div>
 
-              <button className="mb-2 relative  bg-[#cdd713] w-[400px] h-[40px] mx-auto">
-                <div className="flex justify-center items-center font-semibold font-Inter  w-[400px] top-1 -right-1 absolute h-[40px] bg-[#939A00] text-white">
+              <div className="flex justify-center  mt-3">
+                <button className=" px-10 py-2 font-Inter  font-medium hover:bg-[#870012] transition-all duration-200 bg-[#EB3656]  text-white rounded">
                   Continue
-                </div>
-              </button>
-
-              <p className="mt-4 text-sm font-Inter text-black">
-                Already have an account?{" "}
-                <Link to="/login">
-                  <a className="text-[#D24821] cursor-pointer"> Login </a>
-                </Link>{" "}
-              </p>
-
-              <div className="flex w-[400px] items-center gap-2 mt-4">
-                <div className="bg-[#191A48] h-[1px] w-[200px]"></div>
-                <p className="text-lg text-[#191A48]">Or</p>
-                <div className="bg-[#191A48] h-[1px] w-[200px]"></div>
+                </button>
               </div>
             </form>
-
-            <div
-              onClick={handleGoogleLogin}
-              className="cursor-pointer justify-center flex items-center gap-2 mb-7 mt-2 py-2 text-base border  bg-[#939A00] w-[400px]"
-            >
-              <div className="flex items-center gap-2">
-                <FcGoogle className="text-2xl"></FcGoogle>
-                <h2 className="font-semibold text-white font-Inter">
-                  Continue with Google
-                </h2>
-              </div>
-            </div>
           </div>
         </div>
+
+        <Footer></Footer>
+        <SocialLink></SocialLink>
       </div>
     </div>
   );

@@ -136,10 +136,10 @@ const CheckOutForm = ({ item }) => {
     }
   };
   return (
-    <div>
+    <div className="mt-12">
       <form onSubmit={handleSubmit}>
         <CardElement
-          className="border-b py-3 pr-3 border-[#939A00]"
+          className="py-3 px-4 border rounded-lg"
           options={{
             style: {
               base: {
@@ -156,12 +156,13 @@ const CheckOutForm = ({ item }) => {
           }}
         />
 
-        <button className="mt-5" type="submit">
-          <div className="cursor-pointer relative bg-[#939A00] w-[100px] h-[40px] ">
-            <div className="flex justify-center items-center font-semibold font-Inter  w-[100px] top-2 right-2 absolute h-[40px] border-4 border-[#939A00] text-[#939A00] bg-white">
-              Pay
-            </div>
-          </div>
+        <button
+          className="mt-5 w-full py-2 rounded-lg text-white font-Inter
+           font-semibold cursor-pointer hover:bg-[#EB3656] bg-[#870012] "
+          type="submit"
+        >
+          {" "}
+          Pay
         </button>
         <p className="text-red-400">{error}</p>
         {transactionId && (

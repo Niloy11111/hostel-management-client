@@ -5,7 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import "../../../../../Css/App.css";
 import UseAuth from "../../../../../Hooks/UseAuth";
 import UseAxiosSecure from "../../../../../Hooks/UseAxiosSecure";
-
+import "../MealCard/MealCard.css";
 const MealCard = ({ item }) => {
   const {
     name,
@@ -32,29 +32,31 @@ const MealCard = ({ item }) => {
 
   return (
     <>
-      <div className="meal relative  w-[330px] h-[330px] bg-white hover">
-        <img className="h-full" src={image}></img>
-        <div className="info bottom-0 absolute w-full bg-white h-1/2 flex justify-center items-center">
-          <div>
-            <h2 className="font-Inter text-xl font-bold text-center">{name}</h2>
-            <div className="my-5 flex justify-center gap-8">
+      <div className="meal relative  w-[330px] h-[330px]  ">
+        <img className="h-full rounded-3xl" src={image}></img>
+        <div className="rounded-3xl info bottom-0 absolute w-full bg-[#EB3656]  h-1/3 flex justify-center items-center">
+          <div className="w-[90%]">
+            <h2 className="font-Inter mt-4 text-white text-xl font-bold text-center">
+              {name?.split(" ")[0]} {name?.split(" ")[1]}
+            </h2>
+            <div className=" flex justify-center gap-8">
               <Rating
                 className=""
                 style={{ maxWidth: 100 }}
                 value={rating}
                 readOnly
               />
-              <p className="font-Inter text-xl font-semibold ">
+              <p className="font-Inter text-white text-xl font-semibold ">
                 Price ${price}
               </p>
             </div>
-            <Link to={`/details/${_id}`}>
-              <div className="button relative invisible flex justify-center bg-[#cdd713] w-[120px] h-[40px] mx-auto">
-                <div className="flex justify-center items-center font-semibold font-Inter  w-[120px] top-2 right-2 absolute h-[40px] bg-[#939A00] text-white">
-                  Explore
-                </div>
-              </div>
-            </Link>
+            <div className="flex justify-center">
+              <Link to={`/details/${_id}`}>
+                <button className="py-2 px-5 mt-3 invisible text-white  mx-auto rounded font-Inter bg-[#161515]">
+                  Explore More
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

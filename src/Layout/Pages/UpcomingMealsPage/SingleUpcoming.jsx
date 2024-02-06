@@ -3,9 +3,9 @@ import "@smastrom/react-rating/style.css";
 import { useState } from "react";
 import { AiOutlineLike } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import "../../../../src/Css/App.css";
 import UseAuth from "../../../Hooks/UseAuth";
 import useAxiosPublic from "../../../Hooks/UseAxiosPublic";
-
 const SingleUpcoming = ({ meal }) => {
   const { user } = UseAuth();
   const navigate = useNavigate();
@@ -46,38 +46,42 @@ const SingleUpcoming = ({ meal }) => {
   };
 
   return (
-    <div className="">
+    <div className=" upcomingCard">
       <div className="">
         <img className="" src={image}></img>
       </div>
 
-      <div className="bg-white p-4 mx-auto ">
-        <h2 className="font-inter text-lg text-[#333d47] font-semibold mb-2">
-          {name}
+      <h2 className="absolute top-3 right-3 bg-[#870012] px-2 rounded text-white  max-w-min font-Inter font-semibold mb-2">
+        {category}
+      </h2>
+
+      <div
+        style={{
+          backgroundColor: "rgba(11, 11, 11, 0.80)",
+        }}
+        className=" upcomingCardContent bg-blend-overlay   text-white "
+      >
+        <h2 className=" font-Inter pt-1 text-center text-2xl  font-semibold">
+          {name?.split(" ")[0]} {name?.split(" ")[1]}
         </h2>
 
-        <div className="flex items-center gap-3">
+        <div className="flex gap-4 justify-center items-center">
+          <p className="font-Inter font-semibold">
+            $ <span className="text-xl">{price}</span>{" "}
+          </p>
           <div>
             <Rating style={{ maxWidth: 80 }} value={rating} readOnly />
           </div>
-          <div className="flex gap-2">
-            <h2 className="font-inter text-sm text-[#6f7781] font-semibold">
-              {likes} Likes{" "}
-            </h2>
-          </div>
-          <p className="font-inter text-sm text-[#6f7781] font-semibold">
-            ${price}
-          </p>
         </div>
-      </div>
-      <div className="bg-blend-color h-[4vh] bg-[#000000ab] flex items-center justify-center ">
-        <button
-          className="text-white "
-          onClick={handleLikeClick}
-          style={likeButtonStyle}
-        >
-          <AiOutlineLike className=" text-white text-2xl ml-2"></AiOutlineLike>
-        </button>
+        <div className="flex justify-center">
+          <button
+            className="text-white transition-all duration-200 hover:bg-[#870012] bg-[#EB3656] px-6  py-2 rounded flex justify-center items-center "
+            onClick={handleLikeClick}
+            style={likeButtonStyle}
+          >
+            <AiOutlineLike className=" text-white text-xl "></AiOutlineLike>
+          </button>
+        </div>
       </div>
     </div>
   );

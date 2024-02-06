@@ -13,51 +13,52 @@ const MealsByCategory = () => {
   const lunch = meals.filter((item) => item.category === "Lunch");
 
   const dinner = meals.filter((item) => item.category === "Dinner");
-
+  // mx-16  lg:mx-64
   return (
-    <div className="mx-16 pt-10 lg:mx-64">
-      <h2 className="text-4xl mb-6 font-bold text-center text-white font-inter">
-        Explore meals
+    <div className="mt-10">
+      <h2 className="text-3xl lg:text-3xl lg:text-4xl uppercase mb-6 font-bold text-center text-white font-inter">
+        <span className="text-[#EB3656] ">Explore</span> meals
       </h2>
 
       <Tabs className="">
-        <TabList className="flex mb-3 gap-6 justify-center">
-          <Tab
-            className={`cursor-pointer px-10 py-4  ${
-              activeTab === 0 ? "active" : "inActive"
-            }`}
-            onClick={() => setActiveTab(0)}
-          >
-            All Meals
-          </Tab>
+        <div className="bg-[#101010] w-[370px] lg:w-[550px] my-5 mx-auto py-3 rounded-full">
+          <TabList className="flex gap-3 items-center lg:gap-5 justify-center">
+            <Tab
+              className={`cursor-pointer  lg:px-7 py-1 px-3 rounded-full lg:py-2   ${
+                activeTab === 0 ? "active" : "inActive"
+              }`}
+              onClick={() => setActiveTab(0)}
+            >
+              All Meals
+            </Tab>
 
-          <Tab
-            className={`cursor-pointer px-10 py-4  ${
-              activeTab === 1 ? "active" : "inActive"
-            }`}
-            onClick={() => setActiveTab(1)}
-          >
-            Breakfast
-          </Tab>
+            <Tab
+              className={`cursor-pointer rounded-full lg:px-7 lg:py-2 py-1 px-3    ${
+                activeTab === 1 ? "active" : "inActive"
+              }`}
+              onClick={() => setActiveTab(1)}
+            >
+              Breakfast
+            </Tab>
 
-          <Tab
-            className={`cursor-pointer px-10 py-4  ${
-              activeTab === 2 ? "active" : "inActive"
-            }`}
-            onClick={() => setActiveTab(2)}
-          >
-            Lunch
-          </Tab>
-          <Tab
-            className={`cursor-pointer px-10 py-4  ${
-              activeTab === 3 ? "active" : "inActive"
-            }`}
-            onClick={() => setActiveTab(3)}
-          >
-            Dinner
-          </Tab>
-        </TabList>
-
+            <Tab
+              className={`cursor-pointer rounded-full lg:px-7 lg:py-2 py-1 px-3   ${
+                activeTab === 2 ? "active" : "inActive"
+              }`}
+              onClick={() => setActiveTab(2)}
+            >
+              Lunch
+            </Tab>
+            <Tab
+              className={`cursor-pointer rounded-full lg:px-7 lg:py-2 py-1 px-3   ${
+                activeTab === 3 ? "active" : "inActive"
+              }`}
+              onClick={() => setActiveTab(3)}
+            >
+              Dinner
+            </Tab>
+          </TabList>
+        </div>
         <TabPanel>
           <MealTab items={meals}></MealTab>
         </TabPanel>

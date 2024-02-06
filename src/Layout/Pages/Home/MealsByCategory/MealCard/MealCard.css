@@ -1,12 +1,9 @@
 /* .meal:hover .info {
   height: 330px;
   transition: 0.3s;
-}
-
-.meal:hover .button {
-  visibility: visible;
-}
-
-.memberCard {
-  color: red;
 } */
+
+.meal:hover .info button {
+  visibility: visible;
+  color: #fff;
+}

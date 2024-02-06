@@ -1,9 +1,9 @@
 const Footer = () => {
   return (
-    <div className="h-[46vh] bg-blend-color bg-[#000000ab]">
-      <div className="flex justify-center gap-20 pt-20">
-        <div className=" w-[350px]">
-          <div className="border-b-4 pb-1 mb-4  border-[#B7C011]">
+    <div className="mb-10">
+      <div className="flex lg:flex-row flex-col justify-center gap-20 pt-20">
+        <div className="w-[330px] lg:w-[350px]">
+          <div className="border-b-4 pb-1 mb-4  border-[#EB3656]">
             <h2 className=" text-[22px] font-bold text-white ">About Us</h2>
           </div>
           <ul className="flex flex-col space-y-2">
@@ -27,8 +27,8 @@ const Footer = () => {
             </a>
           </ul>
         </div>
-        <div className="w-[350px]">
-          <div className="border-b-4 pb-1 mb-4  border-[#B7C011]">
+        <div className=" w-[330px] lg:w-[350px]">
+          <div className="border-b-4 pb-1 mb-4  border-[#EB3656]">
             <h2 className="text-[22px] font-bold text-white ">
               Plans & Points
             </h2>
@@ -51,8 +51,8 @@ const Footer = () => {
             </a>
           </ul>
         </div>
-        <div className="w-[350px]">
-          <div className="border-b-4 pb-1 mb-4  border-[#B7C011]">
+        <div className=" w-[330px] lg:w-[350px]">
+          <div className="border-b-4 pb-1 mb-4  border-[#EB3656]">
             <h2 className="text-[22px] font-bold text-white ">Catering</h2>
           </div>
           <ul className="flex flex-col space-y-2">
@@ -67,8 +67,8 @@ const Footer = () => {
             </a>
           </ul>
         </div>
-        <div className="w-[350px]">
-          <div className="border-b-4 pb-1 mb-4  border-[#B7C011]">
+        <div className=" w-[330px] lg:w-[350px]">
+          <div className="border-b-4 pb-1 mb-4  border-[#EB3656]">
             <h2 className="text-[22px] font-bold text-white ">For Parents</h2>
           </div>
           <ul className="flex flex-col space-y-2">

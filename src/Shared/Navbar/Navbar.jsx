@@ -1,23 +1,23 @@
+import { FaBars } from "react-icons/fa";
+import { HiOutlineLogout } from "react-icons/hi";
 import { Link, NavLink } from "react-router-dom";
-
 import UseAdmin from "../../Hooks/UseAdmin";
 import UseAuth from "../../Hooks/UseAuth";
-
 const NavBar = () => {
   const [isAdmin] = UseAdmin();
   const { user, logOut } = UseAuth();
 
   const navlinksBeforeLogin = (
     <>
-      <li className="px-3">
+      <li className="">
         <NavLink
           to="/"
           className={({ isActive, isPending }) =>
             isPending
               ? "pending"
               : isActive
-              ? "border-b-4 text-lg font-Inter font-semibold py-3 border-[#F2AC6B]"
-              : "border-b-4 text-lg font-Inter font-semibold py-3"
+              ? " text-sm bg-[#101010] text-[#EB3656] font-Inter rounded-full  font-semibold py-1 lg:py-2 lg:px-4 "
+              : " text-sm hover:bg-[#101010] text-white  font-Inter rounded-full  font-semibold py-1 lg:py-2 lg:px-4"
           }
         >
           Home
@@ -31,8 +31,8 @@ const NavBar = () => {
             isPending
               ? "pending"
               : isActive
-              ? "border-b-4 text-lg font-Inter font-semibold py-3 border-[#F2AC6B]"
-              : "border-b-4 text-lg font-Inter font-semibold py-3"
+              ? "text-sm bg-[#101010] text-[#EB3656] font-Inter rounded-full  font-semibold py-1 lg:py-2 lg:px-4"
+              : " text-sm hover:bg-[#101010] text-white  font-Inter rounded-full  font-semibold py-1 lg:py-2 lg:px-4"
           }
         >
           Meals
@@ -46,30 +46,11 @@ const NavBar = () => {
             isPending
               ? "pending"
               : isActive
-              ? "border-b-4 text-lg font-Inter font-semibold py-3 border-[#F2AC6B]"
-              : "border-b-4 text-lg font-Inter font-semibold py-3"
+              ? "text-sm bg-[#101010] text-[#EB3656] font-Inter rounded-full  font-semibold py-1 lg:py-2 lg:px-4"
+              : "text-sm hover:bg-[#101010] text-white  font-Inter rounded-full  font-semibold py-1 lg:py-2 lg:px-4"
           }
         >
           Upcoming Meals
-        </NavLink>
-      </li>
-
-      <li>
-        <NavLink
-          to="/login"
-          className={({ isActive, isPending }) =>
-            isPending
-              ? "pending"
-              : isActive
-              ? "border-b-4 text-lg font-Inter font-semibold py-3 border-[#F2AC6B]"
-              : "border-b-4 text-lg font-Inter font-semibold py-3"
-          }
-        >
-          <div className="mb-2 relative flex justify-center bg-[#cdd713] w-[120px] h-[40px] mx-auto">
-            <div className="flex justify-center items-center font-semibold font-Inter  w-[120px] top-2 right-2 absolute h-[40px] bg-[#939A00] text-white">
-              Join Now
-            </div>
-          </div>
         </NavLink>
       </li>
     </>
@@ -84,8 +65,8 @@ const NavBar = () => {
             isPending
               ? "pending"
               : isActive
-              ? "border-b-4 text-lg font-Inter font-semibold py-3 border-[#F2AC6B]"
-              : "border-b-4 text-lg font-Inter font-semibold py-3"
+              ? "text-sm bg-[#101010]  text-[#EB3656] font-Inter rounded-full transition-all duration-150  font-semibold py-1 lg:py-2 lg:px-4"
+              : "text-sm hover:bg-[#101010] text-white font-Inter rounded-full transition-all duration-150  font-semibold py-1 lg:py-2 lg:px-4"
           }
         >
           Home
@@ -99,8 +80,8 @@ const NavBar = () => {
             isPending
               ? "pending"
               : isActive
-              ? "border-b-4 text-lg font-Inter font-semibold py-3 border-[#F2AC6B]"
-              : "border-b-4 text-lg font-Inter font-semibold py-3"
+              ? "text-sm bg-[#101010] text-[#EB3656] font-Inter rounded-full transition-all duration-150  font-semibold py-1 lg:py-2 lg:px-4"
+              : "text-sm hover:bg-[#101010] text-white font-Inter rounded-full transition-all duration-150  font-semibold py-1 lg:py-2 lg:px-4"
           }
         >
           Meals
@@ -114,8 +95,8 @@ const NavBar = () => {
             isPending
               ? "pending"
               : isActive
-              ? "border-b-4 text-lg font-Inter font-semibold py-3 border-[#F2AC6B]"
-              : "border-b-4 text-lg font-Inter font-semibold py-3"
+              ? "text-sm lg:bg-[#101010] text-[#EB3656] font-Inter rounded-full  font-semibold py-1 lg:py-2 lg:px-4"
+              : "text-sm hover:bg-[#101010] text-white font-Inter rounded-full  font-semibold py-1 lg:py-2 lg:px-4"
           }
         >
           Upcoming Meals
@@ -128,15 +109,15 @@ const NavBar = () => {
             isPending
               ? "pending"
               : isActive
-              ? "border-b-4 text-lg font-Inter font-semibold py-3 border-[#F2AC6B]"
-              : "border-b-4 text-lg font-Inter font-semibold py-3"
+              ? "text-sm bg-[#101010] text-[#EB3656] font-Inter rounded-full  font-semibold py-1 lg:py-2 lg:px-4"
+              : "text-sm hover:bg-[#101010] text-white font-Inter rounded-full  font-semibold py-1 lg:py-2 lg:px-4"
           }
         >
           Contact Us
         </NavLink>
       </li>
 
-      <li>
+      {/* <li>
         <div className="dropdown hidden lg:block dropdown-end">
           <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
             <div className="w-[60px] rounded-full">
@@ -145,7 +126,7 @@ const NavBar = () => {
           </label>
           <ul
             tabIndex={0}
-            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+            className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow  rounded-box w-52"
           >
             <li>
               <button className="btn btn-sm  btn-ghost">
@@ -169,51 +150,162 @@ const NavBar = () => {
             </li>
           </ul>
         </div>
-      </li>
+      </li> */}
     </>
   );
+
+  console.log(user);
   return (
-    <div className="flex px-5 -mx-12 lg:-mx-36 bg-[#FFFFFF] items-center flex-col lg:flex-row py-3 lg:py-10 justify-between  ">
-      <div className="navbar-start flex items-center">
-        <div className="dropdown ">
-          <label tabIndex={0} className="btn btn-ghost lg:hidden">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+    <>
+      <div className="py-6 flex justify-between">
+        <div className="flex  items-center gap-2">
+          <div className="dropdown">
+            <div tabIndex={0} role="button" className=" lg:hidden">
+              <FaBars className="text-2xl text-[#EB3656]"></FaBars>
+            </div>
+            <ul
+              tabIndex={0}
+              className="menu menu-sm dropdown-content z-[1] shadow  rounded-box bg-[#2C2C2C] w-52 text-[#EB3656] absolute -right-[140px] top-0"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M4 6h16M4 12h8m-8 6h16"
-              />
-            </svg>
-          </label>
-          <ul
-            tabIndex={0}
-            className="text-sm font-inter font-medium  menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 "
-          >
+              {user ? navLinks : navlinksBeforeLogin}
+            </ul>
+          </div>
+
+          <div className="">
+            <h2 className="font-bold text-white font-Inter text-2xl">
+              Campus<span className="text-[#EB3656]">Bite</span>
+            </h2>
+          </div>
+        </div>
+
+        {/* <div className="block lg:hidden">
+          {user ? (
+            <div className="dropdown dropdown-end">
+              <div className="flex gap-2 items-center">
+                <div className="hidden lg:block">
+                  <button
+                    onClick={logOut}
+                    className="text-sm hover:bg-[#101010] text-white font-Inter rounded-full  py-2 px-3"
+                  >
+                    Logout
+                  </button>
+                </div>
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-[60px] rounded-full">
+                    <img src={user?.photoURL} alt={user?.displayName} />
+                  </div>
+                </label>
+              </div>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow  rounded-box w-52 "
+              >
+                <li>
+                  <button className="btn btn-sm text-black btn-ghost">
+                    {user?.displayName}
+                  </button>
+                </li>
+                {user && isAdmin && (
+                  <li className="ml-10">
+                    <Link to="/dashboard/adminProfile">Dashboard</Link>
+                  </li>
+                )}
+                {user && !isAdmin && (
+                  <li className="ml-10">
+                    <Link to="/dashboard/userProfile">Dashboard</Link>
+                  </li>
+                )}
+                <li>
+                  <button onClick={logOut} className="btn btn-sm  btn-ghost">
+                    Logout
+                  </button>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <div className="hidden">
+              <button className="">
+                <NavLink
+                  to="/login"
+                  className={({ isActive, isPending }) =>
+                    isPending
+                      ? "pending"
+                      : isActive
+                      ? "text-sm bg-[#870012] text-white font-Inter rounded-full  font-semibold py-2 px-4"
+                      : " text-sm hover:bg-[#870012] bg-[#EB3656] text-white  font-Inter rounded-full  font-semibold py-2 px-4"
+                  }
+                >
+                  Join Now
+                </NavLink>
+              </button>
+            </div>
+          )}
+        </div> */}
+
+        <div className="flex items-center">
+          <ul className="hidden lg:block lg:flex gap-5">
             {user ? navLinks : navlinksBeforeLogin}
           </ul>
         </div>
 
-        <div className="">
-          <h2 className="font-semibold font-Inter text-xl">
-            Melbourne University{" "}
-            <span className="font-normal">Dining Services</span>{" "}
-          </h2>
+        <div>
+          {user ? (
+            <div className="dropdown lg:block dropdown-end">
+              <div className="flex gap-3 items-center">
+                <div>
+                  <button
+                    onClick={logOut}
+                    className="text-sm flex items-center gap-1 font-Inter font-semibold text-[#EB3656]"
+                  >
+                    Logout{" "}
+                    <HiOutlineLogout className="text-xl"></HiOutlineLogout>
+                  </button>
+                </div>
+
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-[60px] rounded-full">
+                    <img src={user?.photoURL} alt={user?.displayName} />
+                  </div>
+                </label>
+              </div>
+              <ul
+                tabIndex={0}
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box bg-[#2C2C2C] "
+              >
+                <li className=" hover:bg-[#161515] py-1 px-4 rounded-xl text-white font-Inter ">
+                  {user?.displayName}
+                </li>
+                {user && isAdmin && (
+                  <li className="hover:bg-[#161515] px-4   rounded-xl text-white font-Inter ">
+                    <Link to="/dashboard/adminProfile"> Dashboard</Link>
+                  </li>
+                )}
+                {user && !isAdmin && (
+                  <li className="ml-10">
+                    <Link to="/dashboard/userProfile">Dashboard</Link>
+                  </li>
+                )}
+              </ul>
+            </div>
+          ) : (
+            <button className="mt-1">
+              <NavLink
+                to="/login"
+                className={({ isActive, isPending }) =>
+                  isPending
+                    ? "pending"
+                    : isActive
+                    ? "text-sm bg-[#870012] text-white font-Inter rounded-full  font-semibold py-2 px-4"
+                    : " text-sm hover:bg-[#870012] bg-[#EB3656] text-white  font-Inter rounded-full  font-semibold py-2 px-4"
+                }
+              >
+                Join Now
+              </NavLink>
+            </button>
+          )}
         </div>
       </div>
-
-      <div className="">
-        <ul className="hidden text-sm font-inter font-medium lg:flex justify-center items-center text-[#0B0B0B]  flex-col lg:flex-row gap-1 lg:gap-8  font-Inter">
-          {user ? navLinks : navlinksBeforeLogin}
-        </ul>
-      </div>
-    </div>
+    </>
   );
 };
 

@@ -57,101 +57,28 @@ const Login = () => {
   };
 
   return (
-    <div
-      className=" -mx-16  lg:-mx-36 "
-      style={{
-        backgroundImage: `URL(
-        "https://www.bu.edu/dining/files/2017/10/GSU_PKG_FOOD_17-1870-DINING-015-1920x1080.jpg"
-      )`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundAttachment: "fixed",
-      }}
-    >
-      <div className="bg-blend-color bg-[#000000ab] py-20 ">
-        <div className="flex justify-center gap-40">
-          <div className="relative bg-[#E0EB19] w-[400px] h-[100px] ">
-            <div className="flex justify-center items-center font-bold font-Inter  w-[400px] top-4 right-4 absolute h-[100px] text-[#000000] bg-white text-6xl">
-              Ready To Go
-            </div>
-          </div>
-
-          <div className="w-[300px]">
-            <h2 className="text-lg font-bold font-Inter text-white border-b-4 pb-2 border-[#E0EB19]">
-              Also in Ready To Go:
+    <div>
+      <div className="   mt-20 ">
+        <div className="bg-white  flex  rounded-3xl w-2/3 h-[550px]  mx-auto">
+          <div className="flex-1 py-8 pl-8">
+            <h2 className="my-5 text-[#000] text-3xl font-Inter font-bold  text-center">
+              Sign In With
             </h2>
-            <div>
-              <ul className="flex flex-col mt-7 space-y-2">
-                <a
-                  className="text-[#D6D6D6] font-Inter font-medium border-b border-[#444] pb-4"
-                  href=""
-                >
-                  Contact Us
-                </a>
-                <a
-                  className="text-[#D6D6D6] font-Inter font-medium border-b border-[#444] pb-4"
-                  href=""
-                >
-                  Social Media
-                </a>
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-white mb-16 w-3/6 mx-auto p-16 my-20 ">
-          <p className="font-medium font-Inter text-[#000000]">
-            Order a lunch or dinner Rhetty To Go meal by 6:00 pm for pick up as
-            early as 10:00 am the following day.
-          </p>
-
-          <div className="flex justify-around mt-20 mb-16">
-            <div className="w-[250px]">
-              <h2 className="text-3xl font-Inter font-bold text-center text-[#E37714]">
-                Plan Ahead
-              </h2>
-              <div className="h-[4px] mt-4 w-[80px] bg-[#EE913C] mx-auto"></div>
-              <p className="font-medium font-Inter text-[#000000] text-center mt-5">
-                Order for tomorrow, next week, or even a month in advance. The
-                choice is yours.
-              </p>
-            </div>
-            <div className="w-[250px]">
-              <h2 className="text-3xl font-Inter font-bold text-center  text-[#E37714]">
-                Pay Your Way
-              </h2>
-              <div className="h-[4px] mt-4 w-[80px] bg-[#EE913C] mx-auto"></div>
-              <p className="font-medium font-Inter text-[#000000] text-center mt-5">
-                Pay for your meal with a meal swipe.
-              </p>
-            </div>
-            <div className="w-[250px]">
-              <h2 className="text-3xl font-Inter font-bold text-center  text-[#E37714]">
-                Feeling Sick?
-              </h2>
-              <div className="h-[4px] mt-4 w-[80px] bg-[#EE913C] mx-auto"></div>
-              <p className="font-medium font-Inter text-[#000000] text-center mt-5">
-                Order a flu meal—a special assortment of soothing foods like
-                bananas, rice, soup, tea, or yogurt your flu buddy can bring to
-                you so you can focus on feeling better.
-              </p>
-            </div>
-          </div>
-
-          <div className="">
-            <form onSubmit={handleSubmit(onSubmit)} className="">
-              <div className="mb-10 button relative  bg-[#939A00] w-[250px] h-[45px] mx-auto">
-                <div className="flex justify-center items-center font-semibold font-Inter  w-[250px] top-2 right-2 absolute h-[45px] border-4 border-[#939A00] text-[#939A00] bg-white">
-                  Log in here to start
-                </div>
+            <div
+              onClick={handleGoogleLogin}
+              className="cursor-pointer justify-center flex items-center gap-2 mb-3 mt-2 py-2 w-[100px] mx-auto px-2 rounded text-base border"
+            >
+              <div className="flex items-center gap-2">
+                <FcGoogle className="text-2xl"></FcGoogle>
               </div>
-
+            </div>
+            <p className="text-[#000] font-Inter text-center mb-3 ">
+              or use your email password
+            </p>
+            <form onSubmit={handleSubmit(onSubmit)} className="">
               <div>
-                <h2 className="mt-6 text-2xl font-Inter font-bold  border-b-4 border-[#B7C011] max-w-min">
-                  Email
-                </h2>
                 <input
-                  className="bg-[#FFF]  py-2 outline-none  border-b border-[#B7C011] w-[400px]  block pb-3"
+                  className="bg-[#FFF] mb-5 py-2 outline-none  border  w-[400px]  block pb-3 pl-3 rounded-lg"
                   type="email"
                   placeholder="Email"
                   {...register("email", { required: true })}
@@ -159,17 +86,14 @@ const Login = () => {
                   required
                 />
                 {errors.email && (
-                  <span className="text-red-600">email is required</span>
+                  <span className="text-[#D24821]">email is required</span>
                 )}
 
                 <div className="relative mb-4 w-[400px]">
-                  <h2 className="mt-6 border-b-4 border-[#B7C011] max-w-min text-2xl font-Inter font-bold  ">
-                    Password
-                  </h2>
                   <input
                     type={showPassword ? "text" : "password"}
                     placeholder="Password"
-                    className="border-b border-[#B7C011] w-[400px]  py-2 outline-none block pb-3  bg-[#FFF]"
+                    className="border  pl-3 rounded-lg w-[400px]  py-2 outline-none block pb-3  bg-[#FFF]"
                     name="password"
                     {...register("password", {
                       required: true,
@@ -181,20 +105,20 @@ const Login = () => {
                   />
 
                   {errors.password?.type === "required" && (
-                    <p className="text-red-600">Password is required</p>
+                    <p className="text-[#D24821]">Password is required</p>
                   )}
                   {errors.password?.type === "minLength" && (
-                    <p className="text-red-600">
+                    <p className="text-[#D24821]">
                       Password must be at least 6 characters
                     </p>
                   )}
                   {errors.password?.type === "maxLength" && (
-                    <p className="text-red-600">
+                    <p className="text-[#D24821]">
                       Password must be less than 20 characters
                     </p>
                   )}
                   {errors.password?.type === "pattern" && (
-                    <p className="text-red-600">
+                    <p className="text-[#D24821]">
                       Password must contain at least one uppercase letter, one
                       lowercase letter, one number, and one special character
                     </p>
@@ -202,12 +126,12 @@ const Login = () => {
 
                   <span
                     onClick={() => setShowPassword(!showPassword)}
-                    className="text-xl cursor-pointer absolute top-12 text-[] right-2"
+                    className="text-xl cursor-pointer absolute right-2 bottom-3"
                   >
                     {showPassword ? (
-                      <AiFillEye className="text-[#939A00]"></AiFillEye>
+                      <AiFillEye className="text-[#EB3656]"></AiFillEye>
                     ) : (
-                      <AiFillEyeInvisible className="text-[#939A00]"></AiFillEyeInvisible>
+                      <AiFillEyeInvisible className="text-[#EB3656]"></AiFillEyeInvisible>
                     )}
                   </span>
                 </div>
@@ -224,35 +148,28 @@ const Login = () => {
                 </a>
               </div>
 
-              <button className="mb-2 relative  bg-[#cdd713] w-[400px] h-[40px] mx-auto">
-                <div className="flex justify-center items-center font-semibold font-Inter  w-[400px] top-1 -right-1 absolute h-[40px] bg-[#939A00] text-white">
+              <div className="flex justify-center  mt-3">
+                <button className=" px-10 py-2 font-Inter  font-medium hover:bg-[#870012] transition-all duration-200 bg-[#EB3656]  text-white rounded">
                   Continue
-                </div>
-              </button>
-
-              <p className="mt-4 text-sm font-Inter text-black">
-                Don't have an account?{" "}
-                <Link to="/register">
-                  <a className="text-[#D24821] cursor-pointer"> Register </a>
-                </Link>{" "}
-              </p>
+                </button>
+              </div>
             </form>
+          </div>
 
-            <div className="flex w-[400px] items-center gap-2 ">
-              <div className="bg-[#191A48] h-[1px] w-[200px]"></div>
-              <p className="text-lg text-[#191A48]">Or</p>
-              <div className="bg-[#191A48] h-[1px] w-[200px]"></div>
-            </div>
-
-            <div
-              onClick={handleGoogleLogin}
-              className="cursor-pointer justify-center flex items-center gap-2 mb-7 mt-2 py-2 text-base border  bg-[#939A00] w-[400px]"
-            >
-              <div className="flex items-center gap-2">
-                <FcGoogle className="text-2xl"></FcGoogle>
-                <h2 className="font-semibold text-white font-Inter">
-                  Continue with Google
-                </h2>
+          <div className="flex-1  text-[#FFF]  rounded-tl-[170px] rounded-bl-[100px] bg-[#EB3656] flex justify-center items-center rounded-3xl">
+            <div className="">
+              <h2 className="mb-4 text-3xl font-Inter font-bold  text-center">
+                Create Account
+              </h2>
+              <p className="text-center mb-4 font-Inter ">
+                Don't have an account?{" "}
+              </p>
+              <div className="flex justify-center ">
+                <Link to="/register">
+                  <button className=" px-8 py-2 font-Inter  font-medium hover:bg-[#870012] transition-all duration-200 border border-[#fff] hover:border-none  text-white rounded">
+                    SIGN UP
+                  </button>
+                </Link>{" "}
               </div>
             </div>
           </div>

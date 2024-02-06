@@ -1,6 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import UseAuth from "../../../Hooks/UseAuth";
 
+import Lottie from "lottie-react";
+import groovyWalkAnimation from "../../../../public/bannerAnimation/Animation - 1707063121384.json";
 import useAxiosPublic from "../../../Hooks/UseAxiosPublic";
 import SocialLink from "../../../Shared/SocialLinks/SocialLink";
 import Footer from "../Home/Footer/Footer";
@@ -22,19 +24,8 @@ const AllUpcomingMeals = () => {
   });
 
   return (
-    <div
-      className=" -mx-16  lg:-mx-36 "
-      style={{
-        backgroundImage: `URL(
-         "https://www.bu.edu/dining/files/2020/04/19-1172-DINING3-114.jpg"
-        )`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundAttachment: "fixed",
-      }}
-    >
-      <div>
-        <div className="h-[78vh] flex justify-center items-center   font-Inter font-bold px-5 py-4  ">
+    <div>
+      {/* <div className="h-[78vh] flex justify-center items-center   font-Inter font-bold px-5 py-4  ">
           <div>
             <div className="bg-white text-center p-4 text-6xl w-[500px]">
               {" "}
@@ -53,30 +44,44 @@ const AllUpcomingMeals = () => {
               </div>
             </div>
           </div>
+        </div> */}
+
+      <div className="flex justify-between ">
+        <div className="flex items-center">
+          <div className="">
+            <h2 className="text-3xl lg:text-4xl text-center text-white font-Inter font-extrabold">
+              UPCOMING
+              <span className=" text-[#EB3656] "> FOOD</span>
+            </h2>
+            <p className="w-[600px] text-center font-Inter mt-2 text-white">
+              Welcome to our Upcoming Meals Showcase! Get ready to embark on a
+              culinary journey with our carefully curated selection of upcoming
+              meals. Each dish is a masterpiece, crafted with passion and
+              precision to tantalize your taste buds.
+            </p>
+            <div className="flex justify-center">
+              <button className=" mt-8 px-8 py-2 font-Inter  font-medium hover:bg-[#870012] transition-all duration-200 bg-[#EB3656] rounded-full text-white">
+                Let's Eat Healthy
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <Lottie
+            className=""
+            animationData={groovyWalkAnimation}
+            loop={true}
+          />
         </div>
       </div>
 
-      <div className="h-[30vh] bg-white flex items-center">
-        <p className="text-[#000] w-2/4  mx-auto font-inter text-lg text-center">
-          Welcome to our Upcoming Meals Showcase! 🍽️ Get ready to embark on a
-          culinary journey with our carefully curated selection of upcoming
-          meals. Each dish is a masterpiece, crafted with passion and precision
-          to tantalize your taste buds. From savory delights to sweet
-          indulgences, our upcoming meals are a celebration of flavors and
-          creativity. Explore the tantalizing previews below and mark your
-          calendar for a gastronomic adventure. Our chefs are hard at work to
-          bring you an unforgettable dining experience. Don't miss out on the
-          opportunity to savor the extraordinary – your taste buds will thank
-          you later!
-        </p>
-      </div>
-
-      <div className="py-20 bg-blend-color bg-[#000000ab] ">
+      <div className="mb-20">
         <h2 className="text-3xl mb-10 text-white font-Montserrat font-bold text-center">
-          Our Upcoming Meals{" "}
+          LIKE YOUR <span className="text-[#EB3656]">FAVORITE</span> ONE{" "}
         </h2>
 
-        <div className="grid grid-cols-4 w-7/12 mx-auto gap-6">
+        <div className="grid grid-cols-4 gap-6">
           {upcomingMeals?.map((meal) => (
             <SingleUpcoming key={meal._id} meal={meal}></SingleUpcoming>
           ))}

@@ -1,27 +1,20 @@
 .active {
-  background-color: #fff;
-  color: #e37714;
+  background-color: #161515;
+  color: #eb3656;
   font-family: inter;
   font-weight: semibold;
   border-radius: 0px;
+  font-size: small;
 }
 
 .inActive {
   font-family: inter;
   font-weight: semibold;
-
-  /* opacity: 0.1; */
-  position: relative;
-  isolation: isolate;
+  font-size: small;
   color: white;
 }
-
-.inActive::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-
-  background-color: #fff;
-  opacity: 0.4;
+.inActive:hover {
+  box-shadow: 4px;
+  transition: all;
+  color: #eb3656;
 }

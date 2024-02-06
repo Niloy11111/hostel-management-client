@@ -1,40 +1,31 @@
 import { Helmet } from "react-helmet";
 
 import SocialLink from "../../../Shared/SocialLinks/SocialLink";
+import HowWork from "../HowWorks/HowWork";
+import WhyChoose from "../WhyChoose/WhyChoose";
+import About from "./About/About";
 import Banner from "./Banner/Banner";
 import Footer from "./Footer/Footer";
 import MealsByCategory from "./MealsByCategory/MealsByCategory";
 import Membership from "./Membership/Membership";
-import Description from "./Shortdescription/Description";
-
+// -mx-16  lg:-mx-36
 const Home = () => {
   return (
-    <div
-      style={{
-        backgroundImage: `URL(
-            "https://www.bu.edu/dining/files/2021/08/Meal-Plans-21-1.png"
-          )`,
-        backgroundRepeat: "no-repeat",
-        backgroundSize: "cover",
-        backgroundAttachment: "fixed",
-      }}
-      className=" -mx-16  lg:-mx-36 "
-    >
+    <div className=" ">
       <Helmet>
-        <title> Foodtank | Home </title>
+        <title> CampusBite | Home </title>
       </Helmet>
       <Banner></Banner>
-      <div className="">
-        <Description></Description>
-      </div>
 
-      <div className="bg-blend-color bg-[#121212B3]">
+      <div className="">
         <MealsByCategory></MealsByCategory>
+        <About></About>
+        <HowWork></HowWork>
+        <WhyChoose></WhyChoose>
         <Membership></Membership>
         <Footer></Footer>
         <SocialLink></SocialLink>
       </div>
-      <div className="h-[15vh]"></div>
     </div>
   );
 };
