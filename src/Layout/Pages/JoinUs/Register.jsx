@@ -1,4 +1,5 @@
 import { useContext, useState } from "react";
+import { Helmet } from "react-helmet";
 import { useForm } from "react-hook-form";
 import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
@@ -93,6 +94,9 @@ const Register = () => {
 
   return (
     <div>
+      <Helmet>
+        <title>Register | CampusBite</title>
+      </Helmet>
       <div className=" my-20">
         <div className="bg-white flex  rounded-3xl w-2/3 h-[550px]  mx-auto">
           <div className="flex-1  text-[#FFF]  rounded-tr-[170px] rounded-br-[100px] bg-[#EB3656] flex justify-center items-center rounded-3xl">

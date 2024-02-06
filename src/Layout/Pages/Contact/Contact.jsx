@@ -1,6 +1,7 @@
 import emailjs from "@emailjs/browser";
 import Lottie from "lottie-react";
 import { useRef } from "react";
+import { Helmet } from "react-helmet";
 import Swal from "sweetalert2";
 import groovyWalkAnimation from "../../../../public/bannerAnimation/UXsWHFSAaz.json";
 import "../../../../src/Css/App.css";
@@ -38,6 +39,9 @@ const Contact = () => {
 
   return (
     <div className="mt-20">
+      <Helmet>
+        <title>Contact | CampusBite</title>
+      </Helmet>
       <div
         className="flex justify-center gap-20
    "

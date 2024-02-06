@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import UseAuth from "../../../Hooks/UseAuth";
 
 import Lottie from "lottie-react";
+import { Helmet } from "react-helmet";
 import groovyWalkAnimation from "../../../../public/bannerAnimation/Animation - 1707063121384.json";
 import useAxiosPublic from "../../../Hooks/UseAxiosPublic";
 import SocialLink from "../../../Shared/SocialLinks/SocialLink";
@@ -25,26 +26,9 @@ const AllUpcomingMeals = () => {
 
   return (
     <div>
-      {/* <div className="h-[78vh] flex justify-center items-center   font-Inter font-bold px-5 py-4  ">
-          <div>
-            <div className="bg-white text-center p-4 text-6xl w-[500px]">
-              {" "}
-              What Next{" "}
-            </div>
-            <div className="flex gap-3 justify-center bg-blend-color bg-[#121212B3] w-2/3 mx-auto">
-              <div className="py-2 flex gap-3">
-                <div className="flex gap-2 items-center ">
-                  <p className="text-lg font-semibold font-Inter text-white">
-                    Total Upcoming Meals
-                  </p>
-                  <p className="text-lg font-semibold font-Inter text-white ">
-                    <span className="text-base">|</span> {upcomingMeals?.length}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> */}
+      <Helmet>
+        <title>Upcoming Meals | CampusBite</title>
+      </Helmet>
 
       <div className="flex justify-between ">
         <div className="flex items-center">

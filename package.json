@@ -24,6 +24,7 @@
     "react": "^18.2.0",
     "react-awesome-button": "^7.0.5",
     "react-dom": "^18.2.0",
+    "react-favicon": "^2.0.3",
     "react-helmet": "^6.1.0",
     "react-helmet-async": "^2.0.1",
     "react-hook-form": "^7.48.2",

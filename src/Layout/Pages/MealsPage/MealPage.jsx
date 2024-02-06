@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import { BsSearch } from "react-icons/bs";
 import Select from "react-select";
 
+import { Helmet } from "react-helmet";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick-theme.css";
 import "slick-carousel/slick/slick.css";
@@ -54,6 +55,9 @@ const MealPage = () => {
 
   return (
     <div className="mt-16">
+      <Helmet>
+        <title>Meals | CampusBite</title>
+      </Helmet>
       <div className="">
         <h2 className="text-white text-3xl lg:text-4xl text-center  font-Inter font-bold  ">
           Eat Quality <span className="text-[#EB3656]"> Food</span>

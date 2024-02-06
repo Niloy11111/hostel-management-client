@@ -5,7 +5,6 @@ import UseAuth from "../../../Hooks/UseAuth";
 import UseAxiosSecure from "../../../Hooks/UseAxiosSecure";
 
 const CheckOutForm = ({ item }) => {
-  // const navigate = useNavigate() ;
   const [error, setError] = useState("");
   const [clientSecret, setClientSecret] = useState("");
   const [transactionId, setTransactionId] = useState("");
