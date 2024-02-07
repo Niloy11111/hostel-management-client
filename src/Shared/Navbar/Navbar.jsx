@@ -157,7 +157,7 @@ const NavBar = () => {
   console.log(user);
   return (
     <>
-      <div className="py-6 flex justify-between">
+      <div className="py-4 flex justify-between">
         <div className="flex  items-center gap-2">
           <div className="dropdown">
             <div tabIndex={0} role="button" className=" lg:hidden">
@@ -172,9 +172,13 @@ const NavBar = () => {
           </div>
 
           <div className="">
-            <h2 className="font-bold text-white font-Inter text-2xl">
+            <img
+              className="w-[50px] lg:w-[70px]"
+              src="https://i.ibb.co/Zfz6Pjz/Campusbite-2.png"
+            ></img>
+            {/* <h2 className="font-bold text-white font-Inter text-2xl">
               Campus<span className="text-[#EB3656]">Bite</span>
-            </h2>
+            </h2> */}
           </div>
         </div>
 
