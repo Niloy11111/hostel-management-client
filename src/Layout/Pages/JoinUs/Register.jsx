@@ -47,6 +47,7 @@ const Register = () => {
             const userInfo = {
               name: data.name,
               email: data.email,
+              photoURL: data.photoURL,
             };
 
             axiosPublic
@@ -78,16 +79,16 @@ const Register = () => {
       .then((res) => {
         console.log(res.user);
         navigate("/");
-        // const userInfo = {
-        //   email : res.user?.email,
-        //   name : res.user?.displayName
-        // }
-        // axiosPublic.post('/users', userInfo)
-        // .then(res => {
-        //   console.log(res.data)
-        //   navigate('/') ;
-        // })
-        // new Swal("Login Successful!", "Welcome back!", "success")
+        const userInfo = {
+          email: res.user?.email,
+          name: res.user?.displayName,
+          photoURL: res.user?.photoURL,
+        };
+        axiosPublic.post("/users", userInfo).then((res) => {
+          console.log(res.data);
+          navigate("/");
+        });
+        new Swal("Register Successful!", "Thank You!", "success");
       })
       .catch((error) => console.log(error));
   };

@@ -18,7 +18,7 @@ const renderCustomizedLabel = ({
     <text
       x={x}
       y={y}
-      fill="white"
+      fill=""
       textAnchor={x > cx ? "start" : "end"}
       dominantBaseline="central"
     >
@@ -52,24 +52,27 @@ const Analytics = () => {
     { name: "Group C", value: platinum?.length },
   ];
 
-  const COLORS = ["#0088FE", "#00C49F", "#FFBB28"];
+  const COLORS = ["#BFFCF9", "#EB3656", "#870012"];
 
   return (
-    <div>
-      <h2 className="text-3xl lg:text-4xl font-inter font-semibold text-center">
+    <div className="font-Inter">
+      <h2 className="text-3xl lg:text-4xl font-Inter font-extrabold text-center">
         MEMBERSHIP ANALYTICS
       </h2>
-      <h2 className="text-xl font-semibold text-center text-red-400 my-2">
+      <h2 className="text-xl uppercase  font-extrabold text-center text-[#EB3656] my-2">
         __Statistics of Meal Plan__
       </h2>
 
-      <div className="border-t-2 mt-10 flex justify-center">
+      <div className="border-t-2 border-[#BFFCF9] mt-10 flex justify-center">
         <PieChart width={500} height={500}>
           <Pie
             data={data}
             label={renderCustomizedLabel}
             fill="#8884d8"
             dataKey="value"
+            animationBegin={0}
+            animationDuration={1000}
+            animationEasing="ease-out"
           >
             {data.map((entry, index) => (
               <Cell
@@ -84,17 +87,23 @@ const Analytics = () => {
       <div className="flex justify-center">
         <div className="flex flex-col lg:flex-row md:flex-row md:gap-6 lg:gap-14 gap-6">
           <div className="flex items-center gap-4">
-            <h4 className="text-[#0B0B0B] text-lg font-semibold ">Silver </h4>
-            <div className="w-[100px] h-[12px] bg-[#0088FE]"> </div>
+            <h4 className="text-[#FFF] font-Inter text-lg font-semibold ">
+              Silver{" "}
+            </h4>
+            <div className="w-[100px] h-[12px] bg-[#BFFCF9]"> </div>
           </div>
 
           <div className="flex items-center gap-4">
-            <h4 className="text-[#0B0B0B] text-lg font-semibold ">Gold </h4>
-            <div className="w-[100px] h-[12px] bg-[#00C49F]"> </div>
+            <h4 className="text-[#FFF] font-Inter text-lg font-semibold ">
+              Gold{" "}
+            </h4>
+            <div className="w-[100px] h-[12px] bg-[#EB3656]"> </div>
           </div>
           <div className="flex items-center gap-4">
-            <h4 className="text-[#0B0B0B] text-lg font-semibold ">Platinum </h4>
-            <div className="w-[100px] h-[12px] bg-[#FFBB28]"> </div>
+            <h4 className="text-[#FFF] font-Inter text-lg font-semibold ">
+              Platinum{" "}
+            </h4>
+            <div className="w-[100px] h-[12px] bg-[#870012]"> </div>
           </div>
         </div>
       </div>

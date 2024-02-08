@@ -44,7 +44,7 @@ const AllUpcomingMeals = () => {
               precision to tantalize your taste buds.
             </p>
             <div className="flex justify-center">
-              <button className=" mt-8 px-8 py-2 font-Inter  font-medium hover:bg-[#870012] transition-all duration-200 bg-[#EB3656] rounded-full text-white">
+              <button className="bg-[#BFFCF9] text-[#000000] mt-8 px-8 py-2 font-Inter  font-medium hover:bg-[#870012] transition-all duration-200  rounded-full hover:text-white">
                 Let's Eat Healthy
               </button>
             </div>
@@ -61,7 +61,7 @@ const AllUpcomingMeals = () => {
       </div>
 
       <div className="mb-20">
-        <h2 className="text-3xl mb-10 text-white font-Montserrat font-bold text-center">
+        <h2 className="text-3xl mb-10 text-white font-Inter font-bold text-center">
           LIKE YOUR <span className="text-[#EB3656]">FAVORITE</span> ONE{" "}
         </h2>
 

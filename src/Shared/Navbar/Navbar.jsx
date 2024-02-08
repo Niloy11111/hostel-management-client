@@ -3,6 +3,7 @@ import { HiOutlineLogout } from "react-icons/hi";
 import { Link, NavLink } from "react-router-dom";
 import UseAdmin from "../../Hooks/UseAdmin";
 import UseAuth from "../../Hooks/UseAuth";
+
 const NavBar = () => {
   const [isAdmin] = UseAdmin();
   const { user, logOut } = UseAuth();
@@ -176,75 +177,8 @@ const NavBar = () => {
               className="w-[50px] lg:w-[70px]"
               src="https://i.ibb.co/Zfz6Pjz/Campusbite-2.png"
             ></img>
-            {/* <h2 className="font-bold text-white font-Inter text-2xl">
-              Campus<span className="text-[#EB3656]">Bite</span>
-            </h2> */}
           </div>
         </div>
-
-        {/* <div className="block lg:hidden">
-          {user ? (
-            <div className="dropdown dropdown-end">
-              <div className="flex gap-2 items-center">
-                <div className="hidden lg:block">
-                  <button
-                    onClick={logOut}
-                    className="text-sm hover:bg-[#101010] text-white font-Inter rounded-full  py-2 px-3"
-                  >
-                    Logout
-                  </button>
-                </div>
-                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                  <div className="w-[60px] rounded-full">
-                    <img src={user?.photoURL} alt={user?.displayName} />
-                  </div>
-                </label>
-              </div>
-              <ul
-                tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow  rounded-box w-52 "
-              >
-                <li>
-                  <button className="btn btn-sm text-black btn-ghost">
-                    {user?.displayName}
-                  </button>
-                </li>
-                {user && isAdmin && (
-                  <li className="ml-10">
-                    <Link to="/dashboard/adminProfile">Dashboard</Link>
-                  </li>
-                )}
-                {user && !isAdmin && (
-                  <li className="ml-10">
-                    <Link to="/dashboard/userProfile">Dashboard</Link>
-                  </li>
-                )}
-                <li>
-                  <button onClick={logOut} className="btn btn-sm  btn-ghost">
-                    Logout
-                  </button>
-                </li>
-              </ul>
-            </div>
-          ) : (
-            <div className="hidden">
-              <button className="">
-                <NavLink
-                  to="/login"
-                  className={({ isActive, isPending }) =>
-                    isPending
-                      ? "pending"
-                      : isActive
-                      ? "text-sm bg-[#870012] text-white font-Inter rounded-full  font-semibold py-2 px-4"
-                      : " text-sm hover:bg-[#870012] bg-[#EB3656] text-white  font-Inter rounded-full  font-semibold py-2 px-4"
-                  }
-                >
-                  Join Now
-                </NavLink>
-              </button>
-            </div>
-          )}
-        </div> */}
 
         <div className="flex items-center">
           <ul className="hidden lg:block lg:flex gap-5">
@@ -259,7 +193,7 @@ const NavBar = () => {
                 <div>
                   <button
                     onClick={logOut}
-                    className="text-sm flex items-center gap-1 font-Inter font-semibold text-[#EB3656]"
+                    className="text-sm flex items-center gap-1 font-Inter font-semibold text-[#BFFCF9] hover:text-[#EB3656]"
                   >
                     Logout{" "}
                     <HiOutlineLogout className="text-xl"></HiOutlineLogout>
@@ -267,16 +201,16 @@ const NavBar = () => {
                 </div>
 
                 <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-                  <div className="w-[60px] rounded-full">
+                  <div className="w-[60px] rounded-full text-white">
                     <img src={user?.photoURL} alt={user?.displayName} />
                   </div>
                 </label>
               </div>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box bg-[#2C2C2C] "
+                className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow rounded-box bg-[#2C2C2C]  "
               >
-                <li className=" hover:bg-[#161515] py-1 px-4 rounded-xl text-white font-Inter ">
+                <li className=" hover:bg-[#161515] py-1 px-4 rounded-xl text-white font-Inter text-center">
                   {user?.displayName}
                 </li>
                 {user && isAdmin && (
@@ -285,7 +219,7 @@ const NavBar = () => {
                   </li>
                 )}
                 {user && !isAdmin && (
-                  <li className="ml-10">
+                  <li className="hover:bg-[#161515] px-4   rounded-xl text-white font-Inter ">
                     <Link to="/dashboard/userProfile">Dashboard</Link>
                   </li>
                 )}

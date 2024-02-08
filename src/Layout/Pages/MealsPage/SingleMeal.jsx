@@ -41,10 +41,10 @@ const SingleMeal = ({ meal }) => {
               readOnly
             />
 
-            <p className=" text-center font-inter">{category}</p>
+            <p className=" text-center font-Inter">{category}</p>
           </div>
         </div>
-        <p className="text-[#EB3656] text-center mt-10 pb-12 font-medium  font-Montserrat text-[19px]">
+        <p className="text-[#EB3656] text-center mt-10 pb-12 font-medium  font-Inter text-[19px]">
           USD ${price}
         </p>
       </div>

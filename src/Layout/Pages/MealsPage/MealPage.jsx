@@ -113,7 +113,7 @@ const MealPage = () => {
                 >
                   <button
                     type="submit"
-                    className="bg-[#EB3656] hover:bg-[#870012] transition-all duration-150 text-white flex items-center  justify-center w-[100px] h-[40px]  text-lg font-semibold "
+                    className="bg-[#BFFCF9] text-[#000000] hover:bg-[#870012] transition-all duration-150  hover:text-white flex items-center  justify-center w-[100px] h-[40px]  text-lg font-semibold "
                   >
                     {" "}
                     <BsSearch></BsSearch>
@@ -146,54 +146,6 @@ const MealPage = () => {
             </div>
           </div>
         </div>
-
-        {/* <div className=" bg-white flex items-center mt-24 h-[8vh] mb-20 justify-around">
-          <div className=" flex gap-4">
-            <h2 className="font-medium text-[#000] font-Montserrat text-[19px]">
-              Filter By Category
-            </h2>
-            <Select
-              className="w-[200px] flex"
-              defaultValue={selectedOption}
-              onChange={setSelectedOption}
-              options={options}
-            />
-          </div>
-
-          <div className="flex gap-8 items-center ">
-            <h2 className="font-medium text-[#000] font-Montserrat text-[19px]">
-              Filter By Price
-            </h2>
-            <div
-              onClick={() => setAsc(!asc)}
-              className="cursor-pointer button relative flex justify-center bg-[#939A00] w-[150px] h-[45px] mx-auto"
-            >
-              <div className="flex justify-center items-center font-semibold font-Inter  w-[150px] top-2 right-2 absolute h-[45px] border-4 border-[#939A00] text-[#939A00] bg-white">
-                {asc ? "High to Low" : "Low to High"}{" "}
-              </div>
-            </div>
-          </div>
-
-          <div className=" bg-[#FFF] rounded border">
-            <form onSubmit={handleSubmit(onSubmit)} className="flex" action="">
-              <button
-                type="submit"
-                className="bg-[#939A00] text-white flex items-center rounded-lg m-1 justify-center w-[100px] h-[40px]  text-lg font-semibold "
-              >
-                {" "}
-                <BsSearch></BsSearch>
-              </button>
-              <input
-                {...register("title", { required: true })}
-                name="title"
-                id="field-id"
-                className="pl-4 w-full outline-none "
-                type="text"
-                placeholder="Find Food"
-              />
-            </form>
-          </div>
-        </div> */}
 
         <div className="border-b mt-20 mb-12 border-[#444] pb-10">
           <h2 className="text-white text-3xl lg:text-4xl text-center  font-Inter font-bold  ">

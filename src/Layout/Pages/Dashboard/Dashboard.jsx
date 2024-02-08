@@ -1,3 +1,4 @@
+import { useQuery } from "@tanstack/react-query";
 import {
   FaEye,
   FaListAlt,
@@ -11,113 +12,270 @@ import {
   FaUser,
 } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
+import img from "../../../../public/Assets/dashboardLogo.png";
 import UseAdmin from "../../../Hooks/UseAdmin";
-
+import UseAuth from "../../../Hooks/UseAuth";
+import UseAxiosSecure from "../../../Hooks/UseAxiosSecure";
 const Dashboard = () => {
   const [isAdmin] = UseAdmin();
+  const { user } = UseAuth();
+
+  const axiosSecure = UseAxiosSecure();
+
+  const { data: payments } = useQuery({
+    queryKey: ["payments", user?.email],
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/payments/${user.email}`);
+      return res.data;
+    },
+  });
+
+  const adminNavLinks = (
+    <>
+      <li className="w-[220px]  mx-auto">
+        <NavLink
+          to="/dashboard/adminProfile"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "text-sm flex items-center  gap-2 bg-[#101010]  text-[#EB3656] font-Inter rounded transition-all duration-150  font-semibold py-1 lg:py-2 lg:px-4"
+              : "text-sm flex items-center  gap-2 hover:bg-[#101010] text-white font-Inter rounded transition-all duration-150  font-semibold py-1 lg:py-2 lg:px-4"
+          }
+        >
+          <FaPray></FaPray>
+          Membership
+        </NavLink>{" "}
+      </li>
+
+      <li className="w-[220px]  mx-auto">
+        <NavLink
+          to="/dashboard/manageUsers"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "text-sm flex items-center gap-2 bg-[#101010]  text-[#EB3656] font-Inter rounded transition-all duration-150  font-semibold py-1 lg:py-2 lg:px-4"
+              : "text-sm hover:bg-[#101010] flex items-center gap-2 text-white font-Inter rounded transition-all duration-150  font-semibold py-1 lg:py-2 lg:px-4"
+          }
+        >
+          <FaUser></FaUser>
+          Manage Users
+        </NavLink>{" "}
+      </li>
+
+      <li className="w-[220px]  mx-auto">
+        <NavLink
+          to="/dashboard/addMeal"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "text-sm flex items-center gap-2 bg-[#101010]  text-[#EB3656] font-Inter rounded transition-all duration-150  font-semibold py-1 lg:py-2 lg:px-4"
+              : "text-sm hover:bg-[#101010] flex items-center gap-2 text-white font-Inter rounded transition-all duration-150  font-semibold py-1 lg:py-2 lg:px-4"
+          }
+        >
+          <FaMedal></FaMedal>
+          Add Meal
+        </NavLink>{" "}
+      </li>
+      <li className="w-[220px]  mx-auto">
+        <NavLink
+          to="/dashboard/allMeals"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "text-sm flex items-center gap-2 bg-[#101010]  text-[#EB3656] font-Inter rounded transition-all duration-150  font-semibold py-1 lg:py-2 lg:px-4"
+              : "text-sm hover:bg-[#101010] flex items-center gap-2 text-white font-Inter rounded transition-all duration-150  font-semibold py-1 lg:py-2 lg:px-4"
+          }
+        >
+          <FaListAlt></FaListAlt>
+          All Meals
+        </NavLink>{" "}
+      </li>
+      <li className="w-[220px]  mx-auto">
+        <NavLink
+          to="/dashboard/allReviews"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "text-sm flex items-center gap-2 bg-[#101010]  text-[#EB3656] font-Inter rounded transition-all duration-150  font-semibold py-1 lg:py-2 lg:px-4"
+              : "text-sm hover:bg-[#101010] flex items-center gap-2 text-white font-Inter rounded transition-all duration-150  font-semibold py-1 lg:py-2 lg:px-4"
+          }
+        >
+          <FaRedRiver></FaRedRiver>
+          All Reviews
+        </NavLink>{" "}
+      </li>
+
+      <li className="w-[220px]  mx-auto">
+        <NavLink
+          to="/dashboard/serveMeals"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "text-sm flex items-center gap-2 bg-[#101010]  text-[#EB3656] font-Inter rounded transition-all duration-150  font-semibold py-1 lg:py-2 lg:px-4"
+              : "text-sm hover:bg-[#101010] flex items-center gap-2 text-white font-Inter rounded transition-all duration-150  font-semibold py-1 lg:py-2 lg:px-4"
+          }
+        >
+          <FaServer></FaServer>
+          Serve Meals
+        </NavLink>{" "}
+      </li>
+
+      <li className="w-[220px]  mx-auto">
+        <NavLink
+          to="/dashboard/upcomingMeals"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "text-sm flex items-center gap-2 bg-[#101010]  text-[#EB3656] font-Inter rounded transition-all duration-150  font-semibold py-1 lg:py-2 lg:px-4"
+              : "text-sm hover:bg-[#101010] flex items-center gap-2 text-white font-Inter rounded transition-all duration-150  font-semibold py-1 lg:py-2 lg:px-4"
+          }
+        >
+          <FaUpload></FaUpload>
+          Upcoming Meals
+        </NavLink>{" "}
+      </li>
+      <li className="w-[220px]  mx-auto">
+        <NavLink
+          to="/dashboard/analytics"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "text-sm flex items-center gap-2 bg-[#101010]  text-[#EB3656] font-Inter rounded transition-all duration-150  font-semibold py-1 lg:py-2 lg:px-4"
+              : "text-sm hover:bg-[#101010] flex items-center gap-2 text-white font-Inter rounded transition-all duration-150  font-semibold py-1 lg:py-2 lg:px-4"
+          }
+        >
+          <FaUpload></FaUpload>
+          Membership Analytics
+        </NavLink>{" "}
+      </li>
+
+      <li className="w-[220px]  mx-auto">
+        <NavLink
+          to="/"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "text-sm flex items-center gap-2 bg-[#101010]  text-[#EB3656] font-Inter rounded transition-all duration-150  font-semibold py-1 lg:py-2 lg:px-4"
+              : "text-sm hover:bg-[#101010] flex items-center gap-2 text-white font-Inter rounded transition-all duration-150  font-semibold py-1 lg:py-2 lg:px-4"
+          }
+        >
+          <FaEye></FaEye>
+          Go Home
+        </NavLink>{" "}
+      </li>
+    </>
+  );
+
+  const userNavLinks = (
+    <>
+      <li className="w-[220px]  mx-auto">
+        <NavLink
+          to="/dashboard/userProfile"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "text-sm flex items-center gap-2 bg-[#101010]  text-[#EB3656] font-Inter rounded transition-all duration-150  font-semibold py-1 lg:py-2 lg:px-4"
+              : "text-sm hover:bg-[#101010] flex items-center gap-2 text-white font-Inter rounded transition-all duration-150  font-semibold py-1 lg:py-2 lg:px-4"
+          }
+        >
+          <FaPray></FaPray>
+          Membership
+        </NavLink>{" "}
+      </li>
+
+      <li className="w-[220px]  mx-auto">
+        <NavLink
+          to="/dashboard/requestedMeals"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "text-sm flex items-center gap-2 bg-[#101010]  text-[#EB3656] font-Inter rounded transition-all duration-150  font-semibold py-1 lg:py-2 lg:px-4"
+              : "text-sm hover:bg-[#101010] flex items-center gap-2 text-white font-Inter rounded transition-all duration-150  font-semibold py-1 lg:py-2 lg:px-4"
+          }
+        >
+          <FaRegQuestionCircle></FaRegQuestionCircle>
+          Requested Meals
+        </NavLink>{" "}
+      </li>
+
+      <li className="w-[220px]  mx-auto">
+        <NavLink
+          to="/dashboard/userReviews"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "text-sm flex items-center gap-2 bg-[#101010]  text-[#EB3656] font-Inter rounded transition-all duration-150  font-semibold py-1 lg:py-2 lg:px-4"
+              : "text-sm hover:bg-[#101010] flex items-center gap-2 text-white font-Inter rounded transition-all duration-150  font-semibold py-1 lg:py-2 lg:px-4"
+          }
+        >
+          <FaRecordVinyl></FaRecordVinyl>
+          My Reviews
+        </NavLink>{" "}
+      </li>
+
+      <li className="w-[220px]  mx-auto">
+        <NavLink
+          to="/"
+          className={({ isActive, isPending }) =>
+            isPending
+              ? "pending"
+              : isActive
+              ? "text-sm flex items-center gap-2 bg-[#101010]  text-[#EB3656] font-Inter rounded transition-all duration-150  font-semibold py-1 lg:py-2 lg:px-4"
+              : "text-sm hover:bg-[#101010] flex items-center gap-2 text-white font-Inter rounded transition-all duration-150  font-semibold py-1 lg:py-2 lg:px-4"
+          }
+        >
+          <FaEye></FaEye>
+          Go Home
+        </NavLink>{" "}
+      </li>
+    </>
+  );
 
   return (
     <div className="bg-[#161515] text-white">
       <div className="flex">
-        <div className="w-96 min-h-screen bg-[#2B2D42]  pl-20 pt-10">
-          <ul className="menu space-y-2">
-            {isAdmin ? (
-              <>
-                <li>
-                  <NavLink to="/dashboard/adminProfile">
-                    <FaPray></FaPray>
-                    Admin Profile
-                  </NavLink>{" "}
-                </li>
+        <div className="w-[300px] rounded-r-3xl min-h-screen bg-[#2C2C2C] ">
+          <div className=" flex justify-center mx-10 items-center   my-5">
+            <img className="w-[50px] lg:w-[70px]" src={img}></img>
+          </div>
 
-                <li>
-                  <NavLink to="/dashboard/manageUsers">
-                    <FaUser></FaUser>
-                    Manage Users
-                  </NavLink>{" "}
-                </li>
+          <div className="relative pt-5 border-t border-b border-[#444] pb-5 mb-5">
+            <img
+              className="w-[60px] h-[60px] rounded-full mx-auto mb-4"
+              src={user?.photoURL}
+            ></img>
+            <span
+              className="absolute
+            top-14 right-[90px] bg-[#FFF] text-black font-Inter text-sm px-2 rounded"
+            >
+              {isAdmin ? "Admin" : "User"}
+            </span>
+            <p className="text-center font-Inter text-lg font-semibold">
+              {user?.displayName}
+            </p>
+            <p className="text-center font-Inter text-sm -mt-1">
+              {user?.email}
+            </p>
+          </div>
 
-                <li>
-                  <NavLink to="/dashboard/addMeal">
-                    <FaMedal></FaMedal>
-                    Add Meal
-                  </NavLink>{" "}
-                </li>
-                <li>
-                  <NavLink to="/dashboard/allMeals">
-                    <FaListAlt></FaListAlt>
-                    All Meals
-                  </NavLink>{" "}
-                </li>
-                <li>
-                  <NavLink to="/dashboard/allReviews">
-                    <FaRedRiver></FaRedRiver>
-                    All Reviews
-                  </NavLink>{" "}
-                </li>
-
-                <li>
-                  <NavLink to="/dashboard/serveMeals">
-                    <FaServer></FaServer>
-                    Serve Meals
-                  </NavLink>{" "}
-                </li>
-
-                <li>
-                  <NavLink to="/dashboard/upcomingMeals">
-                    <FaUpload></FaUpload>
-                    Upcoming Meals
-                  </NavLink>{" "}
-                </li>
-                <li>
-                  <NavLink to="/dashboard/analytics">
-                    <FaUpload></FaUpload>
-                    Membership Analytics
-                  </NavLink>{" "}
-                </li>
-
-                <li>
-                  <NavLink to="/">
-                    <FaEye></FaEye>
-                    Go Home
-                  </NavLink>{" "}
-                </li>
-              </>
-            ) : (
-              <>
-                <li>
-                  <NavLink to="/dashboard/userProfile">
-                    <FaPray></FaPray>
-                    My Profile
-                  </NavLink>{" "}
-                </li>
-
-                <li>
-                  <NavLink to="/dashboard/requestedMeals">
-                    <FaRegQuestionCircle></FaRegQuestionCircle>
-                    Requested Meals
-                  </NavLink>{" "}
-                </li>
-
-                <li>
-                  <NavLink to="/dashboard/userReviews">
-                    <FaRecordVinyl></FaRecordVinyl>
-                    My Reviews
-                  </NavLink>{" "}
-                </li>
-
-                <li>
-                  <NavLink to="/">
-                    <FaEye></FaEye>
-                    Go Home
-                  </NavLink>{" "}
-                </li>
-              </>
-            )}
+          <ul className="space-y-2">
+            {isAdmin ? adminNavLinks : userNavLinks}
           </ul>
         </div>
 
-        <div className="flex-1 p-12">
+        <div className="flex-1 p-12 min-h-screen">
           <Outlet></Outlet>
         </div>
       </div>

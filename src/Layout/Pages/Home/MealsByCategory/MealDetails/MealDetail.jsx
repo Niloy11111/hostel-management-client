@@ -13,15 +13,14 @@ import Lottie from "lottie-react";
 import { useForm } from "react-hook-form";
 import { AiOutlineLike } from "react-icons/ai";
 import { TiTick } from "react-icons/ti";
+import "swiper/css";
+import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import groovyWalkAnimation from "../../../../../../public/bannerAnimation/is5WNsFx8i.json";
 import UseAxiosSecure from "../../../../../Hooks/UseAxiosSecure";
 import SocialLink from "../../../../../Shared/SocialLinks/SocialLink";
 import Footer from "../../Footer/Footer";
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/navigation";
 
 const MealDetail = () => {
   const { user } = UseAuth();
@@ -87,6 +86,7 @@ const MealDetail = () => {
       const userEmail = user?.email;
       const status = "pending";
       const reviews = allReviews.length;
+      const img = image;
       const requestedMealInfo = {
         title,
         likeNumber,
@@ -94,6 +94,7 @@ const MealDetail = () => {
         reviews,
         userName,
         userEmail,
+        img,
       };
 
       axiosSecure.post("/mealRequest", requestedMealInfo).then((data) => {
@@ -124,9 +125,10 @@ const MealDetail = () => {
     const userEmail = user?.email;
     const title = name;
     const likeNumber = likes;
-    const reviewNumbers = allReviews.length;
+    const reviewNumbers = allReviews.length + 1;
     const review = data.review;
     const detailsId = _id;
+    const img = image;
     const reviewInfo = {
       title,
       likeNumber,
@@ -134,6 +136,7 @@ const MealDetail = () => {
       review,
       userEmail,
       detailsId,
+      img,
     };
     axiosSecure.post(`/reviews`, reviewInfo).then((data) => {
       if (data.data.insertedId) {
@@ -220,7 +223,7 @@ const MealDetail = () => {
                 {ingredient.slice(0, 4).map((item, index) => (
                   <span
                     key={index}
-                    className="mr-3 text-[17px] font-Inter  font-medium font-inter flex items-center gap-2"
+                    className="mr-3 text-[17px] font-Inter  font-medium font-Inter flex items-center gap-2"
                   >
                     {" "}
                     <TiTick className="text-2xl text-[#870012]"></TiTick> {item}{" "}
@@ -249,7 +252,7 @@ const MealDetail = () => {
               ></textarea>
 
               <div className="">
-                <button className=" px-8 py-2 font-Inter  font-medium hover:bg-[#870012] transition-all duration-200 bg-[#40A2D8] rounded text-white">
+                <button className=" mt-4 px-6 lg:px-8 py-1 lg:py-2 font-Inter  font-medium hover:bg-[#870012] transition-all duration-200 rounded-full bg-[#BFFCF9] text-[#000000] hover:text-white">
                   Make Review
                 </button>
               </div>
@@ -290,90 +293,3 @@ const MealDetail = () => {
 };
 
 export default MealDetail;
-
-{
-  /* <div className="flex gap-10 lg:mx-36">
-        <div className="w-4/6">
-          <h2 className="my-10 font-Montserrat text-[#444] text-3xl font-bold">
-            {name}
-          </h2>
-          <div className="flex mb-5 gap-3 items-center ">
-            <Rating style={{ maxWidth: 180 }} value={rating} readOnly />
-            <p className="text-[#005278] font-Montserrat font-medium text-lg">
-              {" "}
-              {likes} likes
-            </p>
-
-            <button onClick={handleLikeClick} style={likeButtonStyle}>
-              <AiOutlineLike className="text-2xl ml-2"></AiOutlineLike>
-            </button>
-          </div>
-          <div className="flex gap-2 items-center border-b pb-8">
-            <img src="https://www.tasteofhome.com/wp-content/themes/bumblebee-toh-child/images/recipes/Symbol-Time.png"></img>
-            <p className="font-Montserrat font-medium text-[#444] text-xl">
-              Post Time{" "}
-              <span className="font-normal text-gray-600 ml-3">{postTime}</span>
-            </p>
-          </div>
-
-          <p className="text-[#454c58] font-Montserrat font-normal mt-7">
-            {description}
-          </p>
-
-          <div className="flex gap-3 mt-10 rounded-lg bg-sky-200">
-            <img className="rounded-l-lg" src={image}></img>
-            <div className="flex items-center justify-center">
-              <button onClick={handleMealRequest}>
-                <AwesomeButton className="block" type="secondary">
-                  Request Meal
-                </AwesomeButton>
-              </button>
-            </div>
-          </div>
-
-          <h2 className="my-6 font-Montserrat text-[#444] text-2xl font-bold">
-            Ingredients
-          </h2>
-
-          <div className="w-2/4">
-            {ingredient.map((item, index) => (
-              <p key={index} className="border-b border-gray-400 py-3">
-                {" "}
-                {item}{" "}
-              </p>
-            ))}
-          </div>
-        </div>
-
-        <div className="w-2/6">
-          <h2 className="my-10 font-Montserrat text-center  text-[#444] text-3xl font-bold">
-            Add Your Thoughts Here{" "}
-          </h2>
-
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <textarea
-              className="outline-none border-2 w-full  mb-6"
-              {...register("review", { required: true })}
-              id=""
-              cols="30"
-              rows="5"
-            ></textarea>
-
-            <div className="flex justify-center">
-              <button className=" px-8 py-3 border-2 bg-red-100">
-                Make Review
-              </button>
-            </div>
-          </form>
-
-          <div>
-            <h2 className="text-2xl my-10 text-center font-bold font-Montserrat">
-              Our Customers Opinion
-            </h2>
-            {allReviews.map((item) => (
-              <li key={item._id}>{item.review}</li>
-            ))}
-          </div>
-        </div>
-      </div> */
-}

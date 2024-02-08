@@ -20,7 +20,7 @@ const Banner = () => {
 
           <div className="flex justify-center">
             <Link to={`/login`}>
-              <button className=" mt-4 px-6 lg:px-8 py-1 lg:py-2 font-Inter  font-medium hover:bg-[#870012] transition-all duration-200 rounded-full bg-[#EB3656]  text-white">
+              <button className=" mt-4 px-6 lg:px-8 py-1 lg:py-2 font-Inter  font-medium hover:bg-[#870012] transition-all duration-200 rounded-full bg-[#BFFCF9] text-[#000000] hover:text-white">
                 Start Now
               </button>
             </Link>

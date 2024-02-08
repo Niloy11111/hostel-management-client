@@ -51,7 +51,7 @@ const Contact = () => {
             <div className="flex gap-10  justify-between container">
               <div className="relative">
                 <input
-                  className="outline-none rounded-lg bg-[#161515] w-[300px]  pl-2 border py-2 mb-7 text-white"
+                  className="outline-none rounded-lg bg-[#161515] w-[300px]  pl-2 border border-[#BFFCF9] py-2 mb-7 text-white"
                   type="text"
                   name="first-name"
                   id=""
@@ -64,7 +64,7 @@ const Contact = () => {
               </div>
               <div className="relative">
                 <input
-                  className="outline-none rounded-lg bg-[#161515] w-[300px] text-white  pl-2 border py-2 mb-7"
+                  className="outline-none rounded-lg bg-[#161515] w-[300px] text-white  pl-2 border border-[#BFFCF9] py-2 mb-7"
                   type="text"
                   name="last-name"
                   id=""
@@ -78,7 +78,7 @@ const Contact = () => {
 
             <div className="relative ">
               <input
-                className="outline-none rounded-lg text-white bg-[#161515] w-full  pl-2 border py-2 mb-7 "
+                className="outline-none rounded-lg text-white bg-[#161515] w-full  pl-2 border border-[#BFFCF9] py-2 mb-7 "
                 type="email"
                 name="user_email"
                 id=""
@@ -90,7 +90,7 @@ const Contact = () => {
             </div>
             <div className="relative ">
               <input
-                className="outline-none rounded-lg w-full text-white bg-[#161515]  pl-2 border py-2 mb-7"
+                className="outline-none rounded-lg w-full text-white bg-[#161515]  pl-2 border border-[#BFFCF9] py-2 mb-7"
                 type="number"
                 name="user-phone"
                 id=""
@@ -149,7 +149,7 @@ const Contact = () => {
 
             <div className="relative ">
               <textarea
-                className=" mb-4 outline-none rounded-lg text-white bg-[#161515] pl-2 border w-full"
+                className=" mb-4 outline-none rounded-lg text-white bg-[#161515] pl-2 border border-[#BFFCF9] w-full"
                 name="message"
                 id=""
                 cols="50"
@@ -161,7 +161,7 @@ const Contact = () => {
               </label>
             </div>
 
-            <button className=" px-8 py-2 font-Inter  font-medium hover:bg-[#870012] transition-all duration-150 bg-[#EB3656] rounded-full text-white">
+            <button className="bg-[#BFFCF9] text-[#000000] px-8 py-2 font-Inter  font-medium hover:bg-[#870012] transition-all duration-150 rounded-full hover:text-white">
               Send Message
             </button>
           </form>

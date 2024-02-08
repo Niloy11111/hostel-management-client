@@ -44,15 +44,8 @@ const Login = () => {
     googleSignIn()
       .then((res) => {
         console.log(res.user);
-        const userInfo = {
-          email: res.user?.email,
-          name: res.user?.displayName,
-        };
-        axiosPublic.post("/users", userInfo).then((res) => {
-          console.log(res.data);
-          navigate("/");
-        });
         new Swal("Login Successful!", "Welcome back!", "success");
+        navigate("/");
       })
       .catch((error) => console.log(error));
   };

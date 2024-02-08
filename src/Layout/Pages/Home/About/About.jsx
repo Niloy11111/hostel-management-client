@@ -27,7 +27,7 @@ const About = () => {
           </p>
 
           <Link to={`/contact`}>
-            <button className="mt-7 lg:mt-12 px-4 lg:px-8 py-2 lg:py-2 font-Inter  font-medium hover:bg-[#870012] transition-all duration-150 bg-[#EB3656] rounded-full text-white">
+            <button className="mt-7 lg:mt-12 px-4 lg:px-8 py-2 lg:py-2 font-Inter  font-medium hover:bg-[#870012] transition-all duration-150 bg-[#BFFCF9] text-[#000000] rounded-full hover:text-white">
               Contact Us
             </button>
           </Link>

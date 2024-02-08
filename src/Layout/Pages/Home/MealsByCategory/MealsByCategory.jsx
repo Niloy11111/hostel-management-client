@@ -16,7 +16,7 @@ const MealsByCategory = () => {
   // mx-16  lg:mx-64
   return (
     <div className="mt-10">
-      <h2 className="text-3xl lg:text-3xl lg:text-4xl uppercase mb-6 font-bold text-center text-white font-inter">
+      <h2 className="text-3xl lg:text-3xl lg:text-4xl uppercase mb-6 font-bold text-center text-white font-Inter">
         <span className="text-[#EB3656] ">Explore</span> meals
       </h2>
 
