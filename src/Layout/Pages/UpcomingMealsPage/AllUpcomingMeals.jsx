@@ -3,7 +3,7 @@ import UseAuth from "../../../Hooks/UseAuth";
 
 import Lottie from "lottie-react";
 import { Helmet } from "react-helmet";
-import groovyWalkAnimation from "../../../../public/bannerAnimation/Animation - 1707063121384.json";
+import groovyWalkAnimation from "../../../../src/assets/bannerAnimation/Animation - 1707063121384.json";
 import useAxiosPublic from "../../../Hooks/UseAxiosPublic";
 import SocialLink from "../../../Shared/SocialLinks/SocialLink";
 import Footer from "../Home/Footer/Footer";

@@ -17,7 +17,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import groovyWalkAnimation from "../../../../../../public/bannerAnimation/is5WNsFx8i.json";
+import groovyWalkAnimation from "../../../../../../src/assets/bannerAnimation/is5WNsFx8i.json";
 import UseAxiosSecure from "../../../../../Hooks/UseAxiosSecure";
 import SocialLink from "../../../../../Shared/SocialLinks/SocialLink";
 import Footer from "../../Footer/Footer";
