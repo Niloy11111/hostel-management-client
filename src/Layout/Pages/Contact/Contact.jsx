@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { Helmet } from "react-helmet";
 import Swal from "sweetalert2";
 import groovyWalkAnimation from "../../../../public/bannerAnimation/UXsWHFSAaz.json";
+
 import "../../../../src/Css/App.css";
 import SocialLink from "../../../Shared/SocialLinks/SocialLink";
 import Footer from "../Home/Footer/Footer";
