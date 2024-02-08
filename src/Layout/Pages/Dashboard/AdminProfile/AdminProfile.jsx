@@ -1,8 +1,4 @@
 import { useQuery } from "@tanstack/react-query";
-import Lottie from "lottie-react";
-import goldBedgeAnimation from "../../../../../public/Bedges/eyvoDqwwLu.json";
-import silverAnimation from "../../../../../public/Bedges/rfB3OLjbdi.json";
-import platinumAnimation from "../../../../../public/Bedges/uVh8iOBGBC.json";
 import UseAuth from "../../../../Hooks/UseAuth";
 import UseAxiosSecure from "../../../../Hooks/UseAxiosSecure";
 const AdminProfile = () => {
@@ -26,7 +22,7 @@ const AdminProfile = () => {
         <span className="text-[#EB3656]"> {payments?.[0].plan} Users </span>
       </h2>
 
-      <div>
+      {/* <div>
         {payments?.[0]?.plan === "Platinum" ? (
           <Lottie
             className="w-[400px] mx-auto"
@@ -46,7 +42,7 @@ const AdminProfile = () => {
             loop={true}
           />
         )}
-      </div>
+      </div> */}
 
       {/* <div>
         {payments?.[0]?.plan ? (

@@ -1,9 +1,7 @@
 import { format, parseISO } from "date-fns";
 
-import Lottie from "lottie-react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
-import groovyWalkAnimation from "../../../../../public/bannerAnimation/SsKQcPBeWP.json";
 import UseAuth from "../../../../Hooks/UseAuth";
 import useAxiosPublic from "../../../../Hooks/UseAxiosPublic";
 const AddMeal = () => {
@@ -113,11 +111,11 @@ const AddMeal = () => {
             Add a <span className="text-[#EB3656]">Meal</span>{" "}
           </h2>
 
-          <Lottie
+          {/* <Lottie
             className="w-[400px]"
             animationData={groovyWalkAnimation}
             loop={true}
-          />
+          /> */}
         </div>
 
         <div className="w-3/6 ">
