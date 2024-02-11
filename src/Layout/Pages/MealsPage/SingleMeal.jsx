@@ -18,15 +18,13 @@ const SingleMeal = ({ meal }) => {
     _id,
   } = meal;
   return (
-    <div className="mt-24">
-      <div className=" bg-[#fff] w-[270px]  rounded-3xl ">
-        <div className="  space-y-2 relative h-[120px]">
-          <div className="absolute -top-24 left-9">
-            <img
-              className="  rounded-full   w-[200px] h-[200px]"
-              src={image}
-            ></img>
-          </div>
+    <div className="">
+      <div className=" bg-[#fff]   rounded-3xl ">
+        <div>
+          <img
+            className="rounded-3xl p-3 mx-auto  w-full h-[150px]"
+            src={image}
+          ></img>
         </div>
         <div className="flex justify-center">
           <div className="space-y-1">
@@ -44,7 +42,7 @@ const SingleMeal = ({ meal }) => {
             <p className=" text-center font-Inter">{category}</p>
           </div>
         </div>
-        <p className="text-[#EB3656] text-center mt-10 pb-12 font-medium  font-Inter text-[19px]">
+        <p className="text-[#EB3656] text-center mt-8 pb-10 font-medium  font-Inter text-[19px]">
           USD ${price}
         </p>
       </div>
@@ -53,3 +51,12 @@ const SingleMeal = ({ meal }) => {
 };
 
 export default SingleMeal;
+
+{
+  /* <div className="absolute  left-[25%] -top-[40%]">
+<img
+  className="  rounded-full mx-auto  w-[150px] h-[150px]"
+  src={image}
+></img>
+</div> */
+}

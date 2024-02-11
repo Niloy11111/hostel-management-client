@@ -1,14 +1,20 @@
 import { format, parseISO } from "date-fns";
 
+import Lottie from "lottie-react";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
 import UseAuth from "../../../../Hooks/UseAuth";
 import useAxiosPublic from "../../../../Hooks/UseAxiosPublic";
+import banner from "../../../../assets/lottie/SsKQcPBeWP.json";
 const AddMeal = () => {
   const axiosPublic = useAxiosPublic();
   const { user } = UseAuth();
 
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
   const onSubmitAddMeal = async (data) => {
     let date;
@@ -111,16 +117,12 @@ const AddMeal = () => {
             Add a <span className="text-[#EB3656]">Meal</span>{" "}
           </h2>
 
-          {/* <Lottie
-            className="w-[400px]"
-            animationData={groovyWalkAnimation}
-            loop={true}
-          /> */}
+          <Lottie className="w-[400px]" animationData={banner} loop={true} />
         </div>
 
         <div className="w-3/6 ">
           <form className="w-full text-[#BFFCF9]">
-            <div className="flex gap-5 w-full ">
+            <div className="flex gap-5 w-full mb-8">
               <div className=" w-full">
                 <input
                   {...register("name", { required: true })}
@@ -131,26 +133,30 @@ const AddMeal = () => {
                 />
               </div>
 
-              <div className="w-full mb-12">
+              <div className="w-full ">
                 <select
+                  name="category"
                   defaultValue="default"
-                  {...register("category", { required: true })}
-                  className="outline-none rounded-lg bg-[#161515] w-full pl-2 border   border-[#BFFCF9] py-2 "
+                  {...register("category", {
+                    required: true,
+                    validate: (value) => value !== "default",
+                  })}
+                  className="outline-none rounded-lg bg-[#161515] w-full pl-2 border border-[#BFFCF9] py-2"
                 >
-                  <option disabled value="default">
-                    Select a category{" "}
+                  <option value="default" disabled>
+                    Select Category
                   </option>
                   <option value="Breakfast">Breakfast</option>
-                  <option value="Lunch">Lunch </option>
-                  <option value="Dinner">Dinner </option>
+                  <option value="Lunch">Lunch</option>
+                  <option value="Dinner">Dinner</option>
                 </select>
               </div>
             </div>
 
-            <div className="flex w-full gap-4  mb-6">
+            <div className="flex w-full gap-4  ">
               <input
                 type="datetime-local"
-                {...register("date")}
+                {...register("date", { required: true })}
                 className="outline-none rounded-lg bg-[#161515]  pl-2 border border-[#BFFCF9] py-2 mb-7  w-full "
               />
 
@@ -181,6 +187,15 @@ const AddMeal = () => {
                 className="outline-none rounded-lg bg-[#161515]  pl-2 border border-[#BFFCF9] w-full py-2 mb-7 "
               />
               <input
+                type="number"
+                placeholder="Price"
+                {...register("price", { required: true })}
+                className="outline-none rounded-lg bg-[#161515]  pl-2 border border-[#BFFCF9] w-full py-2 mb-7 "
+              />
+            </div>
+
+            <div className="flex w-full gap-4 ">
+              <input
                 type="text"
                 placeholder="Distributor Name"
                 {...register("adminName")}
@@ -202,13 +217,13 @@ const AddMeal = () => {
 
             <div className="flex gap-5 w-full">
               <textarea
-                {...register("ingredients")}
+                {...register("ingredients", { required: true })}
                 placeholder="Ingredients"
                 className="outline-none rounded-lg bg-[#161515]  pl-2 border border-[#BFFCF9] py-2 mb-7  w-full"
               ></textarea>
 
               <textarea
-                {...register("description")}
+                {...register("description", { required: true })}
                 placeholder="Description"
                 className="outline-none rounded-lg bg-[#161515]  pl-2 border border-[#BFFCF9] py-2 mb-7  w-full"
               ></textarea>
@@ -221,6 +236,41 @@ const AddMeal = () => {
                 placeholder="imageURL"
                 className="outline-none rounded-lg bg-[#161515]  pl-2 border w-full border-[#BFFCF9] py-2 mb-7 "
               />
+            </div>
+
+            <div>
+              {errors.name && (
+                <span className="text-[#D24821] mr-4 ">Name is required</span>
+              )}
+
+              {errors.category && (
+                <span className="text-[#D24821] mr-4 ">Select a category</span>
+              )}
+
+              {errors.date && (
+                <span className="text-[#D24821] mr-4 ">Date is required</span>
+              )}
+
+              {errors.price && (
+                <span className="text-[#D24821] mr-4 ">Price is required</span>
+              )}
+
+              {errors.ingredients && (
+                <span className="text-[#D24821] mr-4 ">
+                  Meal ingredients is required
+                </span>
+              )}
+              {errors.description && (
+                <span className="text-[#D24821] mr-4 ">
+                  Meal description is required
+                </span>
+              )}
+
+              {errors.image && (
+                <span className="text-[#D24821]  ">
+                  Meals photoURL is required
+                </span>
+              )}
             </div>
 
             <button

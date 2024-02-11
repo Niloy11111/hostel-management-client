@@ -32,8 +32,8 @@ const MealCard = ({ item }) => {
 
   return (
     <>
-      <div className="meal relative  w-[330px] h-[330px]  ">
-        <img className="h-full rounded-3xl" src={image}></img>
+      <div className="meal relative h-[330px]  ">
+        <img className="h-full w-full rounded-3xl" src={image}></img>
         <div className="rounded-3xl info bottom-0 absolute w-full bg-[#EB3656]  h-1/3 flex justify-center items-center">
           <div className="w-[90%]">
             <h2 className="font-Inter mt-4 text-white text-xl font-bold text-center">

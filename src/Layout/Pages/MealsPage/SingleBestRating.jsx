@@ -18,17 +18,17 @@ const SingleBestRating = ({ item }) => {
   } = item;
 
   return (
-    <div className="bg-[#E0FEC1] rounded-full w-[100px] h-[160px] pt-2 pb-3">
+    <div className="bg-[#E0FEC1] px-1 rounded-full  lg:pt-2 pb-3">
       <img
-        className="w-[70px] h-[70px] mx-auto rounded-full "
+        className="w-[40px] h-[40px] lg:w-[70px] lg:h-[70px] mx-auto rounded-full "
         src={image}
       ></img>
 
-      <h2 className="font-Inter text-sm text-center font-semibold mt-5">
+      <h2 className="font-Inter text-sm text-center font-semibold lg:mt-5 mt-3">
         {category}
       </h2>
       <p className="font-bold text-sm text-center font-Inter">
-        $ <span className="text-base font-bold font-Inter">{price}</span>{" "}
+        $ <span className="lg:text-base font-bold font-Inter">{price}</span>{" "}
       </p>
     </div>
   );

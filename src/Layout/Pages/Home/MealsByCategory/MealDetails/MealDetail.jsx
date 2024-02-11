@@ -17,11 +17,10 @@ import "swiper/css";
 import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
-import groovyWalkAnimation from "../../../../../../src/assets/bannerAnimation/is5WNsFx8i.json";
 import UseAxiosSecure from "../../../../../Hooks/UseAxiosSecure";
 import SocialLink from "../../../../../Shared/SocialLinks/SocialLink";
+import banner from "../../../../../assets/bannerAnimation/is5WNsFx8i.json";
 import Footer from "../../Footer/Footer";
-
 const MealDetail = () => {
   const { user } = UseAuth();
   const navigate = useNavigate();
@@ -156,19 +155,19 @@ const MealDetail = () => {
     <div>
       <div className=" my-20">
         <div className="relative">
-          <div className="flex justify-between ">
-            <div className="flex items-center">
+          <div className="flex  gap-5 lg:flex-row flex-col-reverse justify-between ">
+            <div className="flex justify-center lg:w-1/2  lg:items-center">
               <div className="">
                 <div className="flex justify-center mb-5">
                   <Rating style={{ maxWidth: 180 }} value={rating} readOnly />
                 </div>
-                <h2 className="text-3xl lg:text-4xl text-center text-white font-Inter font-extrabold">
-                  <span className=" text-[#EB3656] uppercase">
+                <h2 className="text-3xl lg:text-4xl text-center text-white font-Inter font-extrabold mb-5">
+                  <span className=" text-[#EB3656] uppercase ">
                     {" "}
                     {name?.split(" ")[0]} {name?.split(" ")[1]}
                   </span>
                 </h2>
-                <p className="w-[600px] text-center font-Inter mt-2 text-white">
+                <p className=" text-center font-Inter mt-2 text-white">
                   {description?.slice(0, 210)}
                 </p>
                 <div className="mt-8 flex items-center justify-center gap-2">
@@ -189,44 +188,89 @@ const MealDetail = () => {
               </div>
             </div>
 
+            <div
+              className="border lg:hidden border-[#444] bg-[#161515]  rounded-xl 
+             "
+            >
+              <div className="py-7 px-4 text-white">
+                <div className="flex gap-3 lg:gap-5 justify-center">
+                  <h2 className=" lg:text-xl mb-2   font-medium font-Inter text-center">
+                    {postTime}
+                  </h2>{" "}
+                  <span className="hidden lg:block text-[#870012] ext-xl mb-2   font-medium font-Inter text-center">
+                    ||
+                  </span>
+                  <h2 className=" lg:text-xl mb-2   font-medium font-Inter text-center">
+                    <span className="lg:block hidden"> Total</span> Review{" "}
+                    {allReviews?.length}
+                  </h2>
+                  <span className="hidden lg:block text-[#870012] ext-xl mb-2   font-medium font-Inter text-center">
+                    ||
+                  </span>
+                  <h2 className=" lg:text-xl mb-2   font-medium font-Inter text-center">
+                    Likes {likes}
+                  </h2>
+                </div>
+                <h2 className="text-xl lg:text-2xl mb-2   font-bold font-Inter text-center">
+                  Ingredients :
+                </h2>
+                <div className="flex  flex-wrap items-center  mx-auto justify-center ">
+                  {ingredient.slice(0, 4).map((item, index) => (
+                    <span
+                      key={index}
+                      className="mr-3 text-center text-sm lg:text-[17px]  font-medium font-Inter flex items-center gap-2"
+                    >
+                      {" "}
+                      <TiTick className="hidden lg:block text-2xl text-[#870012]"></TiTick>{" "}
+                      {item}{" "}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
             <div className="">
               <img
-                className="w-[700px] h-[700px] rounded-3xl"
+                className="lg:w-[700px] lg:h-[700px] rounded-3xl"
                 src={image}
               ></img>
             </div>
           </div>
 
-          <div className="border border-[#444] bg-[#161515]  rounded-xl   w-2/3  absolute bottom-0 ">
+          <div
+            className="border border-[#444] bg-[#161515]  rounded-xl 
+            lg:w-2/3  absolute lg:bottom-0 hidden lg:block"
+          >
             <div className="py-7 text-white">
-              <div className="flex gap-5 justify-center">
-                <h2 className="text-xl mb-2   font-medium font-Inter text-center">
-                  Post Time {postTime}
+              <div className="flex gap-3 lg:gap-5 justify-center">
+                <h2 className=" lg:text-xl mb-2   font-medium font-Inter text-center">
+                  {postTime}
                 </h2>{" "}
-                <span className="text-[#870012] ext-xl mb-2   font-medium font-Inter text-center">
+                <span className="hidden lg:block text-[#870012] ext-xl mb-2   font-medium font-Inter text-center">
                   ||
                 </span>
-                <h2 className="text-xl mb-2   font-medium font-Inter text-center">
+                <h2 className=" lg:text-xl mb-2   font-medium font-Inter text-center">
                   Total Review {allReviews?.length}
                 </h2>
-                <span className="text-[#870012] ext-xl mb-2   font-medium font-Inter text-center">
+                <span className="hidden lg:block text-[#870012] ext-xl mb-2   font-medium font-Inter text-center">
                   ||
                 </span>
-                <h2 className="text-xl mb-2   font-medium font-Inter text-center">
+                <h2 className=" lg:text-xl mb-2   font-medium font-Inter text-center">
                   Likes {likes}
                 </h2>
               </div>
-              <h2 className="text-2xl mb-2   font-bold font-Inter text-center">
+              <h2 className="text-xl lg:text-2xl mb-2   font-bold font-Inter text-center">
                 Ingredients :
               </h2>
-              <div className="flex flex-wrap items-center  mx-auto justify-center ">
+              <div className="flex  flex-wrap items-center  mx-auto justify-center ">
                 {ingredient.slice(0, 4).map((item, index) => (
                   <span
                     key={index}
-                    className="mr-3 text-[17px] font-Inter  font-medium font-Inter flex items-center gap-2"
+                    className="mr-3 text-center text-sm lg:text-[17px]  font-medium font-Inter flex items-center gap-2"
                   >
                     {" "}
-                    <TiTick className="text-2xl text-[#870012]"></TiTick> {item}{" "}
+                    <TiTick className="hidden lg:block text-2xl text-[#870012]"></TiTick>{" "}
+                    {item}{" "}
                   </span>
                 ))}
               </div>
@@ -235,23 +279,23 @@ const MealDetail = () => {
         </div>
       </div>
 
-      <h2 className="font-Inter uppercase text-center mt-10 text-white text-3xl lg:text-4xl font-bold ">
+      <h2 className="font-Inter uppercase text-center  mt-10 text-white text-3xl lg:text-4xl font-bold ">
         Add Your <span className="text-[#EB3656]">Thoughts</span> Here{" "}
       </h2>
 
-      <div className="flex items-center justify-center h-[40vh] gap-20">
+      <div className="flex lg:flex-row flex-col-reverse items-center justify-center lg:gap-20">
         <div>
           <div className="flex-1">
             <form onSubmit={handleSubmit(onSubmit)}>
               <textarea
-                className="outline-none rounded-lg border-2 w-[600px]  mb-3 pl-5 pt-5 font-Inter text-sm"
+                className="outline-none rounded-lg border-2 w-[370px] lg:w-[600px]  mb-3 pl-5 pt-5 font-Inter text-sm"
                 {...register("review", { required: true })}
                 id=""
                 cols="50"
                 rows="6"
               ></textarea>
 
-              <div className="">
+              <div className="flex justify-center lg:justify-normal">
                 <button className=" mt-4 px-6 lg:px-8 py-1 lg:py-2 font-Inter  font-medium hover:bg-[#870012] transition-all duration-200 rounded-full bg-[#BFFCF9] text-[#000000] hover:text-white">
                   Make Review
                 </button>
@@ -260,24 +304,21 @@ const MealDetail = () => {
           </div>
         </div>
 
-        <div>
-          <Lottie
-            className=""
-            animationData={groovyWalkAnimation}
-            loop={true}
-          />
+        <div className="">
+          {" "}
+          <Lottie animationData={banner} loop={true} />
         </div>
       </div>
 
       <div className="">
-        <h2 className="font-Inter uppercase text-center my-10 text-white text-3xl lg:text-4xl font-bold ">
+        <h2 className="font-Inter uppercase text-center my-10 text-white text-2xl lg:text-4xl font-bold ">
           Word from our <span className="text-[#EB3656]">customers</span>{" "}
         </h2>
         <div className="">
           <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
             {allReviews.map((item) => (
               <SwiperSlide className=" text-white " key={item._id}>
-                <div className="bg-white w-9/12 h-[20vh] mx-auto rounded-xl flex justify-center items-center">
+                <div className="bg-white lg:w-9/12 h-[40vh] lg:h-[20vh] mx-auto rounded-xl flex justify-center items-center">
                   <p className="mx-10 text-black"> {item.review}</p>
                 </div>
               </SwiperSlide>

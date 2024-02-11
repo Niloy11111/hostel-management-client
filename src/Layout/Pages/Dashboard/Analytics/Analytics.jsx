@@ -52,7 +52,7 @@ const Analytics = () => {
     { name: "Group C", value: platinum?.length },
   ];
 
-  const COLORS = ["#BFFCF9", "#EB3656", "#870012"];
+  const COLORS = ["#BFFCF9", "#EB3656", "#2C2C2C"];
 
   return (
     <div className="font-Inter">
@@ -103,7 +103,7 @@ const Analytics = () => {
             <h4 className="text-[#FFF] font-Inter text-lg font-semibold ">
               Platinum{" "}
             </h4>
-            <div className="w-[100px] h-[12px] bg-[#870012]"> </div>
+            <div className="w-[100px] h-[12px] bg-[#2C2C2C]"> </div>
           </div>
         </div>
       </div>

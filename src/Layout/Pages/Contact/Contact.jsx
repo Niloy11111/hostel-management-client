@@ -1,12 +1,12 @@
 import emailjs from "@emailjs/browser";
-import Lottie from "lottie-react";
 import { useRef } from "react";
 import { Helmet } from "react-helmet";
 import Swal from "sweetalert2";
-import groovyWalkAnimation from "../../../../src/assets/bannerAnimation/UXsWHFSAaz.json";
 
+import Lottie from "lottie-react";
 import "../../../../src/Css/App.css";
 import SocialLink from "../../../Shared/SocialLinks/SocialLink";
+import banner from "../../../assets/bannerAnimation/UXsWHFSAaz.json";
 import Footer from "../Home/Footer/Footer";
 const Contact = () => {
   const form = useRef();
@@ -44,15 +44,15 @@ const Contact = () => {
         <title>Contact | CampusBite</title>
       </Helmet>
       <div
-        className="flex justify-center gap-20
+        className="flex lg:flex-row flex-col-reverse justify-center gap-10 lg:gap-20
    "
       >
         <div className="">
           <form ref={form} onSubmit={sendEmail} className="container">
-            <div className="flex gap-10  justify-between container">
+            <div className="flex gap-5  lg:gap-10  justify-between container">
               <div className="relative">
                 <input
-                  className="outline-none rounded-lg bg-[#161515] w-[300px]  pl-2 border border-[#BFFCF9] py-2 mb-7 text-white"
+                  className="outline-none rounded-lg bg-[#161515] w-full lg:w-[300px]  pl-2 border border-[#BFFCF9] py-2 mb-7 text-white"
                   type="text"
                   name="first-name"
                   id=""
@@ -65,7 +65,7 @@ const Contact = () => {
               </div>
               <div className="relative">
                 <input
-                  className="outline-none rounded-lg bg-[#161515] w-[300px] text-white  pl-2 border border-[#BFFCF9] py-2 mb-7"
+                  className="outline-none rounded-lg bg-[#161515] w-full lg:w-[300px] text-white  pl-2 border border-[#BFFCF9] py-2 mb-7"
                   type="text"
                   name="last-name"
                   id=""
@@ -162,18 +162,15 @@ const Contact = () => {
               </label>
             </div>
 
-            <button className="bg-[#BFFCF9] text-[#000000] px-8 py-2 font-Inter  font-medium hover:bg-[#870012] transition-all duration-150 rounded-full hover:text-white">
+            <button className="bg-[#BFFCF9] text-[#000000] px-4 lg:px-8 py-2 font-Inter  font-medium hover:bg-[#870012] transition-all duration-150 rounded-full hover:text-white lg:text-base text-sm">
               Send Message
             </button>
           </form>
         </div>
 
         <div className="">
-          <Lottie
-            className=""
-            animationData={groovyWalkAnimation}
-            loop={true}
-          />
+          {" "}
+          <Lottie animationData={banner} loop={true} />
         </div>
       </div>
 

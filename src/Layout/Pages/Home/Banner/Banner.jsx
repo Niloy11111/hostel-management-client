@@ -1,6 +1,6 @@
 import Lottie from "lottie-react";
 import { Link } from "react-router-dom";
-import groovyWalkAnimation from "../../../../../src/assets/bannerAnimation/Animation - 1706532449925.json";
+import banner from "../../../../assets/bannerAnimation/Animation - 1706532449925.json";
 const Banner = () => {
   return (
     <div className="lg:h-[66vh] mt-10 lg:mt-0 flex items-center ">
@@ -28,7 +28,7 @@ const Banner = () => {
         </div>
 
         <div className="">
-          <Lottie animationData={groovyWalkAnimation} loop={true} />
+          <Lottie animationData={banner} loop={true} />
         </div>
       </div>
     </div>

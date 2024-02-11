@@ -21,7 +21,7 @@ const MealsByCategory = () => {
       </h2>
 
       <Tabs className="">
-        <div className="bg-[#101010] w-[370px] lg:w-[550px] my-5 mx-auto py-3 rounded-full">
+        <div className="bg-[#101010] lg:w-[550px]  my-5 mx-auto py-3 rounded-full">
           <TabList className="flex gap-3 items-center lg:gap-5 justify-center">
             <Tab
               className={`cursor-pointer  lg:px-7 py-1 px-3 rounded-full lg:py-2   ${

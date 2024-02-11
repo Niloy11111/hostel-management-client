@@ -54,116 +54,137 @@ const MealPage = () => {
   };
 
   return (
-    <div className="mt-16">
+    <div className="">
       <Helmet>
         <title>Meals | CampusBite</title>
       </Helmet>
       <div className="">
-        <h2 className="text-white text-3xl lg:text-4xl text-center  font-Inter font-bold  ">
+        <h2 className="text-white my-16 text-3xl lg:text-4xl text-center  font-Inter font-extrabold  uppercase">
           Eat Quality <span className="text-[#EB3656]"> Food</span>
         </h2>
 
-        <div className="flex justify-between mt-20">
-          <div className="flex items-center">
-            <div>
-              <p className="my-5 text-white font-Inter font-medium">
-                Welcome to CampusBite Meals page{" "}
+        <div className="flex flex-col-reverse lg:flex-row gap-10">
+          <div className=" flex items-center lg:w-1/2 ">
+            <div
+              className=" 
+            "
+            >
+              <p className="text-center  text-2xl uppercase my-8 text-white font-Inter font-bold">
+                <span className="text-[#EB3656]">Welcome</span> to CampusBite
+                Meals page{" "}
               </p>
 
               <p className="mb-7 text-white font-Inter font-medium">
-                CampusBite a name that Fuel campus life with delicious bites!
-                Explore a world of diverse, healthy, <br /> and convenient food
-                options
+                We fuel campus life with delicious bites! Our mission is to
+                provide a world of diverse, healthy, and convenient food options
+                to keep you energized throughout your busy day. Whether you're
+                craving a hearty meal or a quick snack between classes, we've
+                got you covered. From fresh salads to mouthwatering sandwiches
+                and everything in between, our menu has something for everyone.
+                Say goodbye to boring cafeteria food and hello to a culinary
+                adventure right on campus. Join us at CampusBite and let your
+                taste buds explore!
               </p>
 
-              <div className="space-y-3 mb-5">
-                <div className="flex items-center gap-2">
-                  <img
-                    className="w-[30px]"
-                    src="https://i.ibb.co/qxknKhC/checkmark.png"
-                  ></img>
-                  <p className=" text-white text-sm font-Inter font-medium">
-                    The food here uses 100% natural preservatives
-                  </p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <img
-                    className="w-[30px] "
-                    src="https://i.ibb.co/qxknKhC/checkmark.png"
-                  ></img>
-                  <p className=" text-white text-sm font-Inter font-medium">
-                    The package here is very up to date and safe
-                  </p>
-                </div>
-                <div className="flex items-center gap-2">
-                  <img
-                    className="w-[30px]"
-                    src="https://i.ibb.co/qxknKhC/checkmark.png"
-                  ></img>
-                  <p className=" text-white text-sm font-Inter font-medium">
-                    A comfortable place to hang out with your friends.
-                  </p>
+              <div className="">
+                <div className="space-y-2 mb-5 ">
+                  <div className="flex items-center gap-2">
+                    <img
+                      className="w-[30px]"
+                      src="https://i.ibb.co/qxknKhC/checkmark.png"
+                    ></img>
+                    <p className=" text-white text-sm font-Inter font-medium">
+                      The food here uses 100% natural preservatives
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <img
+                      className="w-[30px] "
+                      src="https://i.ibb.co/qxknKhC/checkmark.png"
+                    ></img>
+                    <p className=" text-white text-sm font-Inter font-medium">
+                      The package here is very up to date and safe
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <img
+                      className="w-[30px]"
+                      src="https://i.ibb.co/qxknKhC/checkmark.png"
+                    ></img>
+                    <p className=" text-white text-sm font-Inter font-medium">
+                      A comfortable place to hang out with your friends.
+                    </p>
+                  </div>
                 </div>
               </div>
-              <div className="border  w-2/3 rounded mt-16">
+              <div className=" lg:w-2/3 mx-auto  mt-10 ">
                 <form
                   onSubmit={handleSubmit(onSubmit)}
-                  className=" flex "
+                  className=" flex bg-white rounded-3xl"
                   action=""
                 >
-                  <button
-                    type="submit"
-                    className="bg-[#BFFCF9] text-[#000000] hover:bg-[#870012] transition-all duration-150  hover:text-white flex items-center  justify-center w-[100px] h-[40px]  text-lg font-semibold "
-                  >
-                    {" "}
-                    <BsSearch></BsSearch>
-                  </button>
                   <input
                     {...register("title", { required: true })}
                     name="title"
                     id="field-id"
-                    className="pl-4 w-full outline-none"
+                    className="pl-4 rounded-l-3xl w-full outline-none"
                     type="text"
                     placeholder="Find Food"
                   />
+                  <button
+                    type="submit"
+                    className="bg-[#BFFCF9] rounded-3xl text-[#000000] hover:bg-[#870012] transition-all duration-150  hover:text-white flex items-center  justify-center w-[200px] h-[45px]  lg:h-[50px] text-lg font-semibold "
+                  >
+                    {" "}
+                    <BsSearch></BsSearch>
+                  </button>
                 </form>
               </div>
             </div>
           </div>
 
-          <div className="flex">
-            <div className="absolute z-10 top-[310px] right-[530px]">
+          <div className=" lg:w-1/2 ">
+            <div className="mb-3">
               <img
-                className="w-[330px] h-[480px] rounded-xl"
-                src="https://i.ibb.co/Mp5LL3p/platting-4282016-1280.jpg"
+                className="rounded-3xl h-[350px] w-full"
+                src="https://i.ibb.co/cTT24pr/vegetable-skewer-3317060-640.jpg"
               ></img>
             </div>
-            <div className="mt-16">
-              <img
-                className="w-[330px] h-[480px] rounded-xl"
-                src="https://i.ibb.co/4K4PbqN/table-2600954-1280.jpg"
-              ></img>
+
+            <div className="flex gap-5">
+              <div className="">
+                <img
+                  className=" rounded-xl"
+                  src="https://i.ibb.co/bdcV0Zs/meal-1307604-640.jpg"
+                ></img>
+              </div>
+              <div className="">
+                <img
+                  className=" rounded-xl"
+                  src="https://i.ibb.co/mXykGW8/meal-5921491-640.jpg"
+                ></img>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="border-b mt-20 mb-12 border-[#444] pb-10">
-          <h2 className="text-white text-3xl lg:text-4xl text-center  font-Inter font-bold  ">
+        <div className="border-b mt-10 lg:mt-20 mb-12 border-[#444] pb-10">
+          <h2 className="text-white text-3xl uppercase lg:text-4xl text-center  font-Inter font-extrabold  ">
             Our <span className="text-[#EB3656]"> Specials</span>
           </h2>
         </div>
 
-        <div className="flex justify-between ">
-          <div>
-            <div className="  bg-white  p-6 w-[480px]  mt-24 pb-20 rounded-3xl">
-              <div className="flex gap-16 ">
+        <div className="flex flex-col lg:flex-row  gap-10">
+          <div className="">
+            <div className="  bg-white  p-6  pb-20 rounded-3xl">
+              <div className="flex gap-4 lg:gap-10">
                 <div className=" bg-[#FFF]  ">
-                  <div className=" gap-4">
+                  <div className=" ">
                     <h2 className="font-bold text-center mb-4 text-[#000] font-Inter text-[19px]">
                       Filter By Category
                     </h2>
                     <Select
-                      className="w-[200px] "
+                      className=""
                       defaultValue={selectedOption}
                       onChange={setSelectedOption}
                       options={options}
@@ -177,7 +198,7 @@ const MealPage = () => {
                   </h2>
                   <button
                     onClick={() => setAsc(!asc)}
-                    className="cursor-pointer px-10  py-2 rounded button  bg-[#161515] hover:bg-[#444] text-white"
+                    className="cursor-pointer w-full  py-2 rounded button  bg-[#161515] hover:bg-[#444] text-white"
                   >
                     {asc ? "High to Low" : "Low to High"}{" "}
                   </button>
@@ -187,8 +208,8 @@ const MealPage = () => {
               <h2 className="font-bold text-center mb-10 text-[#000] font-Inter text-3xl lg:text-4xl  mt-36 ">
                 Best Rating Meal
               </h2>
-              <div className=" ">
-                <Slider {...settings} className="">
+              <div className="lg:w-[400px]">
+                <Slider {...settings}>
                   {bestRatingMeals.map((item) => (
                     <SingleBestRating
                       key={item._id}
@@ -200,15 +221,15 @@ const MealPage = () => {
             </div>
           </div>
 
-          <div className="mb-20 ">
+          <div className="mb-20 flex-1 ">
             {categoryValue ? (
-              <div className="grid grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filteredMeals.map((meal) => (
                   <SingleMeal key={meal._id} meal={meal}></SingleMeal>
                 ))}
               </div>
             ) : (
-              <div className="grid grid-cols-3 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
                 {allMeals.map((meal) => (
                   <SingleMeal key={meal._id} meal={meal}></SingleMeal>
                 ))}
